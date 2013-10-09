@@ -38,9 +38,9 @@ module.exports = function (grunt) {
                 files: ['test/spec/{,*/}*.coffee'],
                 tasks: ['coffee:test']
             },
-            compass: {
-                files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-                tasks: ['compass']
+            less: {
+                files: ['<%= yeoman.app %>/styles/{,*/}*.{less}'],
+                tasks: ['less']
             },
             livereload: {
                 options: {
@@ -160,20 +160,13 @@ module.exports = function (grunt) {
                 }]
             }
         },
-        compass: {
-            options: {
-                sassDir: '<%= yeoman.app %>/styles',
-                cssDir: '.tmp/styles',
-                imagesDir: '<%= yeoman.app %>/images',
-                javascriptsDir: '<%= yeoman.app %>/scripts',
-                fontsDir: '<%= yeoman.app %>/styles/fonts',
-                importPath: '<%= yeoman.app %>/bower_components',
-                relativeAssets: true
-            },
-            dist: {},
-            server: {
+        less: {
+            development: {
                 options: {
-                    debugInfo: true
+                    paths: ['<%= yeoman.app %>/styles', '<%= yeoman.app %>/bower_components/bootstrap/less']
+                },
+                files: {
+                    '<%= yeoman.app %>/styles/main.css': ['<%= yeoman.app %>/styles/main.less']
                 }
             }
         },
@@ -311,7 +304,7 @@ module.exports = function (grunt) {
                 'coffee',
                 'createDefaultTemplate',
                 'jst',
-                'compass:server',
+                'less',
                 'connect:test:keepalive'
             ]);
         }
@@ -321,7 +314,7 @@ module.exports = function (grunt) {
             'coffee:dist',
             'createDefaultTemplate',
             'jst',
-            'compass:server',
+            'less',
             'connect:livereload',
             'open',
             'watch'
@@ -333,7 +326,7 @@ module.exports = function (grunt) {
         'coffee',
         'createDefaultTemplate',
         'jst',
-        'compass',
+        'less',
         'jasmine',
         'watch:test'
     ]);
@@ -343,7 +336,7 @@ module.exports = function (grunt) {
         'coffee',
         'createDefaultTemplate',
         'jst',
-        'compass:dist',
+        'less',
         'useminPrepare',
         'requirejs',
         'imagemin',
