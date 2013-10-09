@@ -22,12 +22,14 @@ require.config({
     }
 });
 
-require([
-    'backbone',
-    'routes/user'
-], function (Backbone, UserRouter) {
 
+require(['app', 'routes/main'], function (app, MainRouter) {
 
-    Backbone.router = new UserRouter();
-    Backbone.history.start();
+    app.router = new MainRouter();
+
+    Backbone.history.start({
+        pushState: false,
+        root: app.root
+    });
+
 });
