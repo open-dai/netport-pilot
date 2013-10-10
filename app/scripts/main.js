@@ -23,7 +23,7 @@ require.config({
 });
 
 
-require(['app', 'routes/main'], function (app, MainRouter) {
+require(['app', 'routes/main', 'backbone'], function (app, MainRouter, Backbone) {
 
     app.router = new MainRouter();
 
