@@ -3,15 +3,17 @@
 define([
     'jquery',
     'backbone',
-    'views/layout'
-], function ($, Backbone, Layout) {
+    'views/layout',
+    'views/reports'
+], function ($, Backbone, Layout, Reports) {
     'use strict';
 
     var MainRouter = Backbone.Router.extend({
         routes: {
             '': 'index',
             'user': 'user',
-            'user/:id': 'user'
+            'user/:id': 'user',
+            'reports': 'reports'
         },
 
         index: function() {
@@ -23,6 +25,14 @@ define([
         user: function(id) {
             console.log('Welcome to your user router.');
             console.log(id);
+        },
+
+        reports: function() {
+            var mainLayout = new Layout.MainLayout();
+            mainLayout.render();
+
+            var reportsLayout = new Reports.MapLayout();
+            reportsLayout.render();
         }
 
     });
