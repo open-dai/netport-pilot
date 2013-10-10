@@ -5909,3 +5909,6 @@ td.visible-print {
 body {
   background-color: #fafafa;
 }
+#mapContainer {
+  height: 240px;
+}
