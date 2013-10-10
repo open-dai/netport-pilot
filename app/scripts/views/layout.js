@@ -15,6 +15,7 @@ define([
 	*/
     var View = {};
 
+    //Temporary menu sollution. To be moved either to a template or a collection.
     var menuItems = {
 		menuItems: [
 			{title: 'Reports', href: '#/reports'},
@@ -27,8 +28,6 @@ define([
 		el: '#container',
 		template: JST['app/scripts/templates/layout.ejs'],
 		render: function() {
-			//Old compile
-			//var compiledTemplate = _.template( this.template );
 			this.$el.html(this.template);
 
 			var menu = new View.Menu();
