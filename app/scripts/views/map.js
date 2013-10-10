@@ -2,8 +2,9 @@
 define([
     'jquery',
     'underscore',
-    'backbone'
-], function ($, _, Backbone) {
+    'backbone',
+    'leaflet'
+], function ($, _, Backbone, L) {
 
     'use strict';
 
