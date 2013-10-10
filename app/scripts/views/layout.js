@@ -15,11 +15,18 @@ define([
 	*/
     var View = {};
 
+    var menuItems = {
+		menuItems: [
+			{title: 'Reports', href: '#/reports'},
+			{title: 'Add new', href: '#/reports/add'},
+			{title: 'User', href: '#/user/1'}
+		]
+    };
+
     View.MainLayout = Backbone.View.extend({
 		el: '#container',
 		template: JST['app/scripts/templates/layout.ejs'],
 		render: function() {
-			console.log(this.template);
 			//Old compile
 			//var compiledTemplate = _.template( this.template );
 			this.$el.html(this.template);
@@ -37,7 +44,7 @@ define([
 		el: '#header',
 		template: JST['app/scripts/templates/menu.ejs'],
 		render: function() {
-			this.$el.html(this.template({title: 'Reports'}));
+			this.$el.html(this.template(menuItems));
 			return this;
 		}
 	});

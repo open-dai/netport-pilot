@@ -1,1 +1,4 @@
-Menu <%=title%>
+<h5>Menu</h5>
+<% for(i=0; i<menuItems.length; i++) { %>
+	<a href="<%=menuItems[i].href%>"><%=menuItems[i].title%></a>
+<% } %>
