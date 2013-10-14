@@ -163,7 +163,7 @@ module.exports = function (grunt) {
         less: {
             development: {
                 options: {
-                    paths: ['<%= yeoman.app %>/styles', '<%= yeoman.app %>/bower_components/bootstrap/less']
+                    paths: ['<%= yeoman.app %>/styles', '<%= yeoman.app %>/bower_components/bootstrap/less', , '<%= yeoman.app %>/bower_components/leaflet-dist']
                 },
                 files: {
                     '<%= yeoman.app %>/styles/main.css': ['<%= yeoman.app %>/styles/main.less']

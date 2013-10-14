@@ -34,7 +34,7 @@ define([
     };
 
     View.MainLayout = Backbone.View.extend({
-        el: '#container',
+        el: '#main',
         template: JST['app/scripts/templates/layout.ejs'],
         render: function() {
             this.$el.html(this.template);
