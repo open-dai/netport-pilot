@@ -2,14 +2,22 @@
   "name": "opendai-reports",
   "version": "0.1.1",
   "author": "NetPort.Karlshamn AB",
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/open-dai/netport-pilot"
+  },
+
   "main": "server.js",
   "engines": {
     "node": ">=0.8.0"
   },
+
   "dependencies": {
     "express": "~3.1.2",
     "pg": "~1.0.4"
   },
+
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "~0.4.0",
