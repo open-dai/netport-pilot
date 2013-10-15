@@ -16,15 +16,15 @@ app.all('/*', function(req, res, next) {
 
 app.configure(function(){
     app.use('/', express.static(__dirname + '/app'));
-
-
+    app.set('view engine', 'ejs');
+    
     app.use(function(req, res){
       console.log(req.url);
-      express.static(__dirname +req.url);
+      express.static(__dirname + '/app' + req.url);
     });
 
     app.use('/', express.static(__dirname + '/app'));
-    app.use('/banan', express.static(__dirname + '/app'));
+    app.use('/scripts', express.static(__dirname + '/app/scripts'));
     //app.use('/reports', express.static(__dirname + '/'));
     //app.use('/logout', express.static(__dirname + '/'));
     //app.use('/report', express.static(__dirname + '/'));
