@@ -9,18 +9,8 @@ define([
 
     'use strict';
 
+    //Stuff
     var Reports = {};
-
-    var ReportData = {
-        reports: [
-            {
-                'title': 'test report'
-            },
-            {
-                'title': 'test report2'
-            }
-        ]
-    };
 
     Reports.MapLayout = Backbone.View.extend({
         el: '#content',
@@ -30,19 +20,9 @@ define([
 
             var map = new Map();
             map.render();
-
-            var list = new Reports.List({'model': ReportData});
+            var list = new Reports.List({collection: this.collection});
             list.render();
 
-            return this;
-        }
-    });
-
-    Reports.Map = Backbone.View.extend({
-        el: '#mapContainer',
-        template: JST['app/scripts/templates/map.ejs'],
-        render: function() {
-            this.$el.html('mapContainer');
             return this;
         }
     });
@@ -51,7 +31,8 @@ define([
         el: '#reports',
         template: JST['app/scripts/templates/reportsList.ejs'],
         render: function() {
-            this.$el.html(this.template(this.model));
+
+            this.$el.html(this.template({'reports': this.collection.toJSON()}));
             return this;
         }
     });

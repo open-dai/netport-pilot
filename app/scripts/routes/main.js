@@ -4,8 +4,9 @@ define([
     'jquery',
     'backbone',
     'views/layout',
-    'views/reports'
-], function ($, Backbone, Layout, Reports) {
+    'views/reports',
+    'collections/reports'
+], function ($, Backbone, Layout, ReportsView, ReportsCollection) {
     'use strict';
 
     var MainRouter = Backbone.Router.extend({
@@ -28,11 +29,19 @@ define([
         },
 
         reports: function() {
+            //Render the main layout
             var mainLayout = new Layout.MainLayout();
             mainLayout.render();
 
-            var reportsLayout = new Reports.MapLayout();
-            reportsLayout.render();
+
+            var reportscollection = new ReportsCollection();
+            reportscollection.fetch({success: function(){
+                var reportsLayout = new ReportsView.MapLayout({collection: reportscollection});
+                reportsLayout.render();
+            }, error: function(){
+                console.log('Error: Could not load data');
+            }});
+            
         }
 
     });
