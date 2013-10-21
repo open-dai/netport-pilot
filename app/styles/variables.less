@@ -1,4 +1,11 @@
 
+// Scaffolding
+// -------------------------
+
+@body-bg:               @base00; // All countent should be placed in containers with light background
+@text-color:            @base01;
+
+
 // Links
 // -------------------------
 
@@ -12,6 +19,21 @@
 
 @component-active-bg:            @base0C;
 @component-active-color:         mix(white, @brand-primary, 90%);
+
+@border-radius-base:             0px;
+@border-radius-large:            0px;
+@border-radius-small:            0px;
+
+
+// Grid system
+// --------------------------------------------------
+
+// Number of columns in the grid system
+@grid-columns:              6;
+// Padding, to be divided by two and applied to the left and right of all columns
+@grid-gutter-width:         10px;
+// Point at which the navbar stops collapsing
+@grid-float-breakpoint:     @screen-tablet;
 
 
 // Navbar
@@ -37,3 +59,36 @@
 
 @list-group-link-color:          @link-contrast-color;
 @list-group-link-heading-color:  @base03;
+
+
+// Panels
+// -------------------------
+
+@panel-bg:                    @base07;
+@panel-inner-border:          @body-bg;
+@panel-footer-bg:             @base07;
+
+@panel-default-text:          @base03;
+@panel-default-border:        @body-bg;
+@panel-default-heading-bg:    @base07;
+
+@panel-primary-text:          @text-color;
+@panel-primary-border:        @body-bg;
+@panel-primary-heading-bg:    @brand-primary;
+
+@panel-success-text:          @state-success-text;
+@panel-success-border:        @state-success-border;
+@panel-success-heading-bg:    @state-success-bg;
+
+@panel-warning-text:          @state-warning-text;
+@panel-warning-border:        @state-warning-border;
+@panel-warning-heading-bg:    @state-warning-bg;
+
+@panel-danger-text:           @state-danger-text;
+@panel-danger-border:         @state-danger-border;
+@panel-danger-heading-bg:     @state-danger-bg;
+
+@panel-info-text:             @state-info-text;
+@panel-info-border:           @state-info-border;
+@panel-info-heading-bg:       @state-info-bg;
+
