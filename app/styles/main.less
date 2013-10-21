@@ -31,5 +31,19 @@
 // http://www.w3.org/TR/wai-aria/terms#def_widget
 //
 
+@import "widgets/navbar";
+@import "widgets/panels";
 @import "widgets/list-group";
 @import "widgets/leaflet";
+
+//
+// Basic styles
+//
+
+body {
+  padding-top: @navbar-height + (@grid-gutter-width / 2);
+}
+
+[class^="col-"] {
+  margin-bottom: (@grid-gutter-width / 2);
+}

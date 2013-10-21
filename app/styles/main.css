@@ -1555,8 +1555,8 @@ input[type="number"]::-webkit-inner-spin-button {
 .form-control {
   display: block;
   width: 100%;
-  height: 34px;
-  padding: 6px 12px;
+  height: 38px;
+  padding: 8px 10px;
   font-size: 14px;
   line-height: 1.428571429;
   color: #446065;
@@ -1643,29 +1643,29 @@ fieldset[disabled] .checkbox-inline {
   cursor: not-allowed;
 }
 .input-sm {
-  height: 30px;
-  padding: 5px 10px;
+  height: 28px;
+  padding: 4px 5px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 0px;
 }
 select.input-sm {
-  height: 30px;
-  line-height: 30px;
+  height: 28px;
+  line-height: 28px;
 }
 textarea.input-sm {
   height: auto;
 }
 .input-lg {
-  height: 45px;
-  padding: 10px 16px;
+  height: 57px;
+  padding: 16px 20px;
   font-size: 18px;
   line-height: 1.33;
   border-radius: 0px;
 }
 select.input-lg {
-  height: 45px;
-  line-height: 45px;
+  height: 57px;
+  line-height: 57px;
 }
 textarea.input-lg {
   height: auto;
@@ -1729,7 +1729,7 @@ textarea.input-lg {
 }
 .form-control-static {
   margin-bottom: 0;
-  padding-top: 7px;
+  padding-top: 9px;
 }
 .help-block {
   display: block;
@@ -1766,7 +1766,7 @@ textarea.input-lg {
 .form-horizontal .checkbox-inline {
   margin-top: 0;
   margin-bottom: 0;
-  padding-top: 7px;
+  padding-top: 9px;
 }
 .form-horizontal .form-group {
   margin-left: -5px;
@@ -1803,7 +1803,7 @@ textarea.input-lg {
 }
 .btn {
   display: inline-block;
-  padding: 6px 12px;
+  padding: 8px 10px;
   margin-bottom: 0;
   font-size: 14px;
   font-weight: normal;
@@ -2103,14 +2103,14 @@ fieldset[disabled] .btn-link:focus {
   text-decoration: none;
 }
 .btn-lg {
-  padding: 10px 16px;
+  padding: 16px 20px;
   font-size: 18px;
   line-height: 1.33;
   border-radius: 0px;
 }
 .btn-sm,
 .btn-xs {
-  padding: 5px 10px;
+  padding: 4px 5px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 0px;
@@ -3014,20 +3014,20 @@ input[type="button"].btn-block {
   outline: 0;
 }
 .btn-group-xs > .btn {
-  padding: 5px 10px;
+  padding: 4px 5px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 0px;
   padding: 1px 5px;
 }
 .btn-group-sm > .btn {
-  padding: 5px 10px;
+  padding: 4px 5px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 0px;
 }
 .btn-group-lg > .btn {
-  padding: 10px 16px;
+  padding: 16px 20px;
   font-size: 18px;
   line-height: 1.33;
   border-radius: 0px;
@@ -3152,8 +3152,8 @@ input[type="button"].btn-block {
 .input-group-lg > .form-control,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn {
-  height: 45px;
-  padding: 10px 16px;
+  height: 57px;
+  padding: 16px 20px;
   font-size: 18px;
   line-height: 1.33;
   border-radius: 0px;
@@ -3161,8 +3161,8 @@ input[type="button"].btn-block {
 select.input-group-lg > .form-control,
 select.input-group-lg > .input-group-addon,
 select.input-group-lg > .input-group-btn > .btn {
-  height: 45px;
-  line-height: 45px;
+  height: 57px;
+  line-height: 57px;
 }
 textarea.input-group-lg > .form-control,
 textarea.input-group-lg > .input-group-addon,
@@ -3172,8 +3172,8 @@ textarea.input-group-lg > .input-group-btn > .btn {
 .input-group-sm > .form-control,
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .btn {
-  height: 30px;
-  padding: 5px 10px;
+  height: 28px;
+  padding: 4px 5px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 0px;
@@ -3181,8 +3181,8 @@ textarea.input-group-lg > .input-group-btn > .btn {
 select.input-group-sm > .form-control,
 select.input-group-sm > .input-group-addon,
 select.input-group-sm > .input-group-btn > .btn {
-  height: 30px;
-  line-height: 30px;
+  height: 28px;
+  line-height: 28px;
 }
 textarea.input-group-sm > .form-control,
 textarea.input-group-sm > .input-group-addon,
@@ -3206,7 +3206,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   vertical-align: middle;
 }
 .input-group-addon {
-  padding: 6px 12px;
+  padding: 8px 10px;
   font-size: 14px;
   font-weight: normal;
   line-height: 1;
@@ -3216,12 +3216,12 @@ textarea.input-group-sm > .input-group-btn > .btn {
   border-radius: 0px;
 }
 .input-group-addon.input-sm {
-  padding: 5px 10px;
+  padding: 4px 5px;
   font-size: 12px;
   border-radius: 0px;
 }
 .input-group-addon.input-lg {
-  padding: 10px 16px;
+  padding: 16px 20px;
   font-size: 18px;
   border-radius: 0px;
 }
@@ -3739,8 +3739,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
   border-bottom: 1px solid transparent;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
 @media (min-width: 768px) {
   .navbar-form .form-group {
@@ -3796,8 +3796,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
   right: 0;
 }
 .navbar-btn {
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
 .navbar-text {
   float: left;
@@ -3811,8 +3811,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: rgba(249, 250, 250, 0.92);
-  border-color: rgba(249, 250, 250, 0.92);
+  background-color: #f9fafa;
+  border-color: #f9fafa;
 }
 .navbar-default .navbar-brand {
   color: #446065;
@@ -3857,7 +3857,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
-  border-color: rgba(230, 234, 234, 0.92);
+  border-color: #e6eaea;
 }
 .navbar-default .navbar-nav > .dropdown > a:hover .caret,
 .navbar-default .navbar-nav > .dropdown > a:focus .caret {
@@ -3909,7 +3909,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   color: #446065;
 }
 .navbar-inverse {
-  background-color: rgba(68, 96, 101, 0.88);
+  background-color: #446065;
   border-color: transparent;
 }
 .navbar-inverse .navbar-brand {
@@ -3955,7 +3955,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
-  border-color: rgba(54, 76, 80, 0.88);
+  border-color: #364c50;
 }
 .navbar-inverse .navbar-nav > .open > a,
 .navbar-inverse .navbar-nav > .open > a:hover,
@@ -4039,7 +4039,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .pagination > li > span {
   position: relative;
   float: left;
-  padding: 6px 12px;
+  padding: 8px 10px;
   line-height: 1.428571429;
   text-decoration: none;
   background-color: #f9fafa;
@@ -4086,7 +4086,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 .pagination-lg > li > a,
 .pagination-lg > li > span {
-  padding: 10px 16px;
+  padding: 16px 20px;
   font-size: 18px;
 }
 .pagination-lg > li:first-child > a,
@@ -4101,7 +4101,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 .pagination-sm > li > a,
 .pagination-sm > li > span {
-  padding: 5px 10px;
+  padding: 4px 5px;
   font-size: 12px;
 }
 .pagination-sm > li:first-child > a,
@@ -6405,6 +6405,15 @@ td.visible-print {
 #banner:after {
   clear: both;
 }
+.navbar-fixed-top {
+  right: 5px;
+  left: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.panel {
+  border: none;
+}
 .list-group-item {
   color: #e7f7fa;
 }
@@ -6414,4 +6423,10 @@ a.list-group-item .list-group-item-heading {
 }
 .leaflet-container {
   height: 320px;
+}
+body {
+  padding-top: 55px;
+}
+[class^="col-"] {
+  margin-bottom: 5px;
 }

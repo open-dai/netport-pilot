@@ -9,7 +9,7 @@ define([
     'use strict';
 
     var MapView = Backbone.View.extend({
-        el: '#map',
+        el: '#leaflet',
         render: function() {
             console.log('render map');
 
