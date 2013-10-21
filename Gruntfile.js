@@ -120,7 +120,6 @@ module.exports = function (grunt) {
             all: [
                 'Gruntfile.js',
                 '<%= yeoman.app %>/scripts/{,*/}*.js',
-                '!<%= yeoman.app %>/scripts/vendor/*',
                 'test/spec/{,*/}*.js'
             ]
         },
@@ -133,7 +132,8 @@ module.exports = function (grunt) {
                     vendor : [
                         '<%= yeoman.app %>/bower_components/jquery/jquery.js',
                         '<%= yeoman.app %>/bower_components/underscore/underscore.js',
-                        '<%= yeoman.app %>/bower_components/backbone/backbone.js'
+                        '<%= yeoman.app %>/bower_components/backbone/backbone.js',
+                        '<%= yeoman.app %>/bower_components/bootstrap/dist/bootstrap.js'
                     ]
                 }
             }
