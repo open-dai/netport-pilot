@@ -6405,6 +6405,6 @@ td.visible-print {
 #banner:after {
   clear: both;
 }
-.leaflet-mapcontainer {
+.leaflet-container {
   height: 320px;
 }
