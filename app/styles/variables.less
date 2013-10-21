@@ -43,6 +43,30 @@
 @grid-gutter-width:         10px;
 
 
+// Form states and alerts
+// -------------------------
+
+@state-primary-text:             white;
+@state-primary-bg:               @brand-primary;
+@state-primary-border:           @body-bg;
+
+@state-warning-text:             white;
+@state-warning-bg:               @brand-warning;
+@state-warning-border:           @body-bg;
+
+@state-danger-text:              white;
+@state-danger-bg:                @brand-danger;
+@state-danger-border:            @body-bg;
+
+@state-success-text:             white;
+@state-success-bg:               @brand-success;
+@state-success-border:           @body-bg;
+
+@state-info-text:                white;
+@state-info-bg:                  @brand-info;
+@state-info-border:              @body-bg;
+
+
 // List group
 // -------------------------
 
@@ -64,29 +88,34 @@
 
 @panel-bg:                    @base07;
 @panel-inner-border:          @body-bg;
-@panel-footer-bg:             @base07;
+@panel-footer-bg:             @base06;
 
 @panel-default-text:          @base03;
 @panel-default-border:        @body-bg;
-@panel-default-heading-bg:    @base07;
+@panel-default-heading-bg:    @base06;
 
-@panel-primary-text:          @text-color;
+@panel-primary-text:          @state-primary-text;
+@panel-primary-bg:            @state-primary-bg;
 @panel-primary-border:        @body-bg;
-@panel-primary-heading-bg:    @brand-primary;
+@panel-primary-heading-bg:    darken(@panel-primary-bg, 10%);
 
 @panel-success-text:          @state-success-text;
-@panel-success-border:        @state-success-border;
-@panel-success-heading-bg:    @state-success-bg;
+@panel-success-bg:            @state-success-bg;
+@panel-success-border:        @body-bg;
+@panel-success-heading-bg:    darken(@panel-success-bg, 10%);
 
 @panel-warning-text:          @state-warning-text;
+@panel-warning-bg:            @state-warning-bg;
 @panel-warning-border:        @state-warning-border;
-@panel-warning-heading-bg:    @state-warning-bg;
+@panel-warning-heading-bg:    darken(@panel-warning-bg, 10%);
 
 @panel-danger-text:           @state-danger-text;
+@panel-danger-bg:             @state-danger-bg;
 @panel-danger-border:         @state-danger-border;
-@panel-danger-heading-bg:     @state-danger-bg;
+@panel-danger-heading-bg:     darken(@panel-danger-bg, 10%);
 
 @panel-info-text:             @state-info-text;
+@panel-info-bg:               @state-info-bg;
 @panel-info-border:           @state-info-border;
-@panel-info-heading-bg:       @state-info-bg;
+@panel-info-heading-bg:       darken(@panel-info-bg, 10%);
 

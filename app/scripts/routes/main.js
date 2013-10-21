@@ -4,12 +4,13 @@ define([
     'jquery',
     'backbone',
     'facebook',
+    'views/login',
     'views/layout',
     'views/reports',
     'views/bootstrap',
     'collections/reports',
     'models/user'
-], function ($, Backbone, FB, Layout, ReportsView, BootstrapView, ReportsCollection, UserModel) {
+], function ($, Backbone, FB, LoginView, Layout, ReportsView, BootstrapView, ReportsCollection, UserModel) {
     'use strict';
 
     //Init Facebook connection
@@ -23,11 +24,11 @@ define([
     var MainRouter = Backbone.Router.extend({
         routes: {
             '':             'index',
+            'login':        'login',
             'user':         'user',
             'user/:id':     'user',
             'bootstrap':    'bootstrap',
-            'reports':      'reports',
-            'login':        'login'
+            'reports':      'reports'
         },
 
         index: function() {
@@ -35,6 +36,14 @@ define([
             var mainLayout = new Layout.MainLayout();
             var bannerLayout = new Layout.BannerLayout();
             mainLayout.render();
+            bannerLayout.render();
+        },
+
+        login: function() {
+            console.log('routing to login');
+            var loginLayout = new LoginView.Login();
+            var bannerLayout = new Layout.BannerLayout();
+            loginLayout.render();
             bannerLayout.render();
         },
 
@@ -72,10 +81,6 @@ define([
                 console.log('Error: Could not load data');
             }});
 
-        },
-
-        login: function() {
-            
         }
 
     });

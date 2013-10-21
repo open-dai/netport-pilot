@@ -15,24 +15,6 @@ define([
     */
     var View = {};
 
-    //Temporary menu sollution. To be moved either to a template or a collection.
-    var navItems = {
-        navItems: [
-            {
-                title: 'Reports',
-                href: '#/reports'
-            },
-            {
-                title: 'Add new',
-                href: '#/reports/add'
-            },
-            {
-                title: 'User',
-                href: '#/user/1'
-            }
-        ]
-    };
-
     View.MainLayout = Backbone.View.extend({
         el: '#main',
         template: JST['app/scripts/templates/layout.ejs'],
@@ -62,7 +44,7 @@ define([
         template: JST['app/scripts/templates/navigation.ejs'],
         render: function() {
             console.log('render navigation');
-            this.$el.html(this.template(navItems));
+            this.$el.html(this.template());
             return this;
         }
     });
