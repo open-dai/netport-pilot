@@ -48,7 +48,7 @@ define([
         template: JST['app/scripts/templates/banner.ejs'],
         render: function() {
             console.log('render banner');
-            this.$el.html(this.template);
+            this.$el.html(this.template({user: this.model.toJSON()}));
 
             var navigation = new View.NavigationLayout();
             navigation.render();
