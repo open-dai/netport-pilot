@@ -1,10 +1,24 @@
+
+//
+// Vendor libraries
+//
+
 @import "bootstrap";
-
-body {
-  background-color: #fafafa;
-}
-
-#mapContainer {
-	height: 240px;
-}
 @import (less) "leaflet.css";
+
+//
+// Landmarks
+// A type of region on a page to which the user may want quick access.
+// http://www.w3.org/TR/wai-aria/terms#def_landmark
+//
+
+@import "landmarks/main";
+@import "landmarks/banner";
+
+//
+// Widgets
+// Discrete user interface object with which the user can interact.
+// http://www.w3.org/TR/wai-aria/terms#def_widget
+//
+
+@import "widgets/leaflet-mapcontainer";

@@ -5906,12 +5906,6 @@ td.visible-print {
     display: none !important;
   }
 }
-body {
-  background-color: #fafafa;
-}
-#mapContainer {
-  height: 240px;
-}
 /* required styles */
 .leaflet-map-pane,
 .leaflet-tile,
@@ -6350,4 +6344,7 @@ body {
 .leaflet-editing-icon {
   -webkit-border-radius: 2px;
   border-radius: 2px;
+}
+.leaflet-mapcontainer {
+  height: 320px;
 }
