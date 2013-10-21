@@ -247,6 +247,17 @@ module.exports = function (grunt) {
             }
         },
         copy: {
+            glyphicons: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.app %>/bower_components/bootstrap/fonts/',
+                    dest: '<%= yeoman.app %>/fonts',
+                    src: [
+                        '{,*/}*.*'
+                    ]
+                }]
+            },
             dist: {
                 files: [{
                     expand: true,
@@ -256,8 +267,7 @@ module.exports = function (grunt) {
                     src: [
                         '*.{ico,txt}',
                         '.htaccess',
-                        'images/{,*/}*.{webp,gif}',
-                        'styles/fonts/{,*/}*.*'
+                        'fonts/{,*/}*.*'
                     ]
                 }]
             }
@@ -284,7 +294,7 @@ module.exports = function (grunt) {
                         '<%= yeoman.dist %>/scripts/{,*/}*.js',
                         '<%= yeoman.dist %>/styles/{,*/}*.css',
                         '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
-                        '/styles/fonts/{,*/}*.*'
+                        '<%= yeoman.dist %>/fonts/{,*/}*.*'
                     ]
                 }
             }
@@ -314,6 +324,7 @@ module.exports = function (grunt) {
             'coffee:dist',
             'createDefaultTemplate',
             'jst',
+            'copy:glyphicons',
             'less',
             'connect:livereload',
             'open',
@@ -344,7 +355,8 @@ module.exports = function (grunt) {
         'concat',
         'cssmin',
         'uglify',
-        'copy',
+        'copy:glyphicons',
+        'copy:dist',
         'rev',
         'usemin'
     ]);
