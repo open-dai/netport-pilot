@@ -11,7 +11,7 @@ define([
     var MapView = Backbone.View.extend({
         el: '#mapContainer',
         render: function() {
-            console.log('Map rendering');
+            console.log('render map');
 
             var map = L.map('mapContainer').setView([56.169401778813686, 14.864437580108644], 13);
             L.tileLayer('http://{s}.tile.cloudmade.com/4e5f745e28654b7eb26aab577eed79ee/997/256/{z}/{x}/{y}.png', {

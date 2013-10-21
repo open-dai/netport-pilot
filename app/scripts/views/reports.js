@@ -13,9 +13,10 @@ define([
     var Reports = {};
 
     Reports.MapLayout = Backbone.View.extend({
-        el: '#content',
+        el: '#main',
         template: JST['app/scripts/templates/mapLayout.ejs'],
         render: function() {
+            console.log('render reports');
             this.$el.html(this.template);
 
             var map = new Map();

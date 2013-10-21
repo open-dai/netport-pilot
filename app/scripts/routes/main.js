@@ -18,21 +18,27 @@ define([
         },
 
         index: function() {
+            console.log('routing to index');
             var mainLayout = new Layout.MainLayout();
+            var bannerLayout = new Layout.BannerLayout();
             mainLayout.render();
-            console.log('Welcome to your main router.');
+            bannerLayout.render();
         },
 
         user: function(id) {
-            console.log('Welcome to your user router.');
-            console.log(id);
+            console.log('routing to user ' + id);
+            var mainLayout = new Layout.MainLayout();
+            var bannerLayout = new Layout.BannerLayout();
+            mainLayout.render();
+            bannerLayout.render();
         },
 
         reports: function() {
-            //Render the main layout
+            console.log('routing to reports');
             var mainLayout = new Layout.MainLayout();
+            var bannerLayout = new Layout.BannerLayout();
             mainLayout.render();
-
+            bannerLayout.render();
 
             var reportscollection = new ReportsCollection();
             reportscollection.fetch({success: function(){
@@ -41,7 +47,7 @@ define([
             }, error: function(){
                 console.log('Error: Could not load data');
             }});
-            
+
         }
 
     });

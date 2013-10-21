@@ -16,8 +16,8 @@ define([
     var View = {};
 
     //Temporary menu sollution. To be moved either to a template or a collection.
-    var menuItems = {
-        menuItems: [
+    var navItems = {
+        navItems: [
             {
                 title: 'Reports',
                 href: '#/reports'
@@ -37,20 +37,32 @@ define([
         el: '#main',
         template: JST['app/scripts/templates/layout.ejs'],
         render: function() {
+            console.log('render main');
+            this.$el.html(this.template);
+            return this;
+        }
+    });
+
+    View.BannerLayout = Backbone.View.extend({
+        el: '#banner',
+        template: JST['app/scripts/templates/banner.ejs'],
+        render: function() {
+            console.log('render banner');
             this.$el.html(this.template);
 
-            var menu = new View.Menu();
-            menu.render();
+            var navigation = new View.NavigationLayout();
+            navigation.render();
 
             return this;
         }
     });
 
-    View.Menu = Backbone.View.extend({
-        el: '#header',
-        template: JST['app/scripts/templates/menu.ejs'],
+    View.NavigationLayout = Backbone.View.extend({
+        el: '#navigation',
+        template: JST['app/scripts/templates/navigation.ejs'],
         render: function() {
-            this.$el.html(this.template(menuItems));
+            console.log('render navigation');
+            this.$el.html(this.template(navItems));
             return this;
         }
     });
