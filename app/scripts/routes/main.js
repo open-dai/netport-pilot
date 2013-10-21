@@ -3,12 +3,22 @@
 define([
     'jquery',
     'backbone',
+    'facebook',
     'views/layout',
     'views/reports',
     'views/bootstrap',
-    'collections/reports'
-], function ($, Backbone, Layout, ReportsView, BootstrapView, ReportsCollection) {
+    'collections/reports',
+    'models/user'
+], function ($, Backbone, FB, Layout, ReportsView, BootstrapView, ReportsCollection, UserModel) {
     'use strict';
+
+    //Init Facebook connection
+    FB.init({
+        appId      : '524908957595856',                    // App ID from the app dashboard
+        channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel file for x-domain comms
+        status     : true,                                 // Check Facebook Login status
+        xfbml      : true                                  // Look for social plugins on the page
+    });
 
     var MainRouter = Backbone.Router.extend({
         routes: {
@@ -16,7 +26,8 @@ define([
             'user':         'user',
             'user/:id':     'user',
             'bootstrap':    'bootstrap',
-            'reports':      'reports'
+            'reports':      'reports',
+            'login':        'login'
         },
 
         index: function() {
@@ -43,10 +54,15 @@ define([
 
         reports: function() {
             console.log('routing to reports');
+
             var mainLayout = new Layout.MainLayout();
-            var bannerLayout = new Layout.BannerLayout();
             mainLayout.render();
-            bannerLayout.render();
+
+            var authorized = UserModel.checkLogin();
+            if(authorized) {
+                var bannerLayout = new Layout.BannerLayout({model: UserModel});
+                bannerLayout.render();
+            }
 
             var reportscollection = new ReportsCollection();
             reportscollection.fetch({success: function(){
@@ -56,6 +72,10 @@ define([
                 console.log('Error: Could not load data');
             }});
 
+        },
+
+        login: function() {
+            
         }
 
     });
