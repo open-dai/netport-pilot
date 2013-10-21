@@ -41,9 +41,13 @@
 //
 
 body {
-  padding-top: @navbar-height + (@grid-gutter-width / 2);
+
+  // Make space for fixed navbar
+  padding-top: @navbar-height;
 }
 
 [class^="col-"] {
+
+  // Add a default margin to all cols
   margin-bottom: (@grid-gutter-width / 2);
 }

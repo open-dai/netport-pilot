@@ -6406,6 +6406,7 @@ td.visible-print {
   clear: both;
 }
 .navbar-fixed-top {
+  border-bottom: 5px solid #283032;
   right: 5px;
   left: 5px;
   padding-left: 10px;
@@ -6425,7 +6426,7 @@ a.list-group-item .list-group-item-heading {
   height: 320px;
 }
 body {
-  padding-top: 55px;
+  padding-top: 50px;
 }
 [class^="col-"] {
   margin-bottom: 5px;

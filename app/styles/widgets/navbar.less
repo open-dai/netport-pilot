@@ -4,9 +4,13 @@
 
 // Fix the top/bottom navbars when screen real estate supports it
 .navbar-fixed-top {
+
+  // Fake a margin bottom that stays in place when content scrolls below th navbar
+  border-bottom: (@grid-gutter-width / 2) solid @body-bg;
+
+  // Line up with grid
   right: (@grid-gutter-width / 2);
   left: (@grid-gutter-width / 2);
-
   padding-left: @padding-base-horizontal;
   padding-right: @padding-base-horizontal;
 }
