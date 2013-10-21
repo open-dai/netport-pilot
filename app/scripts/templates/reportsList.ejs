@@ -1,6 +1,10 @@
-<h2>Reports</h2>
-<ul>
-<% for(i=0; i<reports.length; i++) { %>
-	<li><%=reports[i].title%></li>
-<% } %>
-</ul>
+<div class="col-xs-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-heading">Reports</h4>
+    </div>
+    <div class="list-group">
+      <% for(i=0; i<reports.length; i++) { %><a href="#" class="list-group-item"><%=reports[i].title%></a><% } %>
+    </div>
+  </div>
+</div>

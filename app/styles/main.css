@@ -6345,6 +6345,66 @@ td.visible-print {
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
+#main {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#main:before,
+#main:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+#main:after {
+  clear: both;
+}
+#main:before,
+#main:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+#main:after {
+  clear: both;
+}
+#banner {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#banner:before,
+#banner:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+#banner:after {
+  clear: both;
+}
+#banner:before,
+#banner:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+#banner:after {
+  clear: both;
+}
 .leaflet-mapcontainer {
   height: 320px;
 }
