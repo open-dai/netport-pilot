@@ -42,8 +42,6 @@ define([
             var menu = new View.Menu();
             menu.render();
 
-            var footer = new View.Footer();
-            footer.render();
             return this;
         }
     });
@@ -53,15 +51,6 @@ define([
         template: JST['app/scripts/templates/menu.ejs'],
         render: function() {
             this.$el.html(this.template(menuItems));
-            return this;
-        }
-    });
-
-    View.Footer = Backbone.View.extend({
-        el: '#footer',
-        template: JST['app/scripts/templates/footer.ejs'],
-        render: function() {
-            this.$el.html(this.template);
             return this;
         }
     });
