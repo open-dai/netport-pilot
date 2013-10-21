@@ -5,16 +5,18 @@ define([
     'backbone',
     'views/layout',
     'views/reports',
+    'views/bootstrap',
     'collections/reports'
-], function ($, Backbone, Layout, ReportsView, ReportsCollection) {
+], function ($, Backbone, Layout, ReportsView, BootstrapView, ReportsCollection) {
     'use strict';
 
     var MainRouter = Backbone.Router.extend({
         routes: {
-            '': 'index',
-            'user': 'user',
-            'user/:id': 'user',
-            'reports': 'reports'
+            '':             'index',
+            'user':         'user',
+            'user/:id':     'user',
+            'bootstrap':    'bootstrap',
+            'reports':      'reports'
         },
 
         index: function() {
@@ -31,6 +33,12 @@ define([
             var bannerLayout = new Layout.BannerLayout();
             mainLayout.render();
             bannerLayout.render();
+        },
+
+        bootstrap: function() {
+            console.log('routing to bootstrap');
+            var bootstrapLayout = new BootstrapView.BootstrapLayout();
+            bootstrapLayout.render();
         },
 
         reports: function() {
