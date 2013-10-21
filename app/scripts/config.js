@@ -9,6 +9,9 @@ require.config({
                 'jquery'
             ],
             exports: 'Backbone'
+        },
+        facebook: {
+            exports: 'FB'
         }
     },
     paths: {
@@ -16,6 +19,7 @@ require.config({
         backbone: '../bower_components/backbone/backbone',
         underscore: '../bower_components/underscore/underscore',
         bootstrap: 'vendor/bootstrap',
-        leaflet: '../bower_components/leaflet-dist/leaflet'
+        leaflet: '../bower_components/leaflet-dist/leaflet',
+        facebook: '//connect.facebook.net/en_US/all'
     }
 });
