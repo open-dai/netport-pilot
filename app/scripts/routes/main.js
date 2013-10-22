@@ -32,10 +32,10 @@ define([
         },
 
         index: function() {
-            console.log('routing to index');
-            var mainLayout = new Layout.MainLayout();
+            console.log('routing to startup');
+            var startupLayout = new Layout.StartupLayout();
             var bannerLayout = new Layout.BannerLayout();
-            mainLayout.render();
+            startupLayout.render();
             bannerLayout.render();
         },
 

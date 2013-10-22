@@ -30,7 +30,7 @@ define([
         template: JST['app/scripts/templates/banner.ejs'],
         render: function() {
             console.log('render banner');
-            this.$el.html(this.template({user: this.model.toJSON()}));
+            this.$el.html(this.template());
 
             var navigation = new View.NavigationLayout();
             navigation.render();
@@ -44,6 +44,16 @@ define([
         template: JST['app/scripts/templates/navigation.ejs'],
         render: function() {
             console.log('render navigation');
+            this.$el.html(this.template());
+            return this;
+        }
+    });
+
+    View.StartupLayout = Backbone.View.extend({
+        el: '#main',
+        template: JST['app/scripts/templates/startup.ejs'],
+        render: function() {
+            console.log('render startup');
             this.$el.html(this.template());
             return this;
         }
