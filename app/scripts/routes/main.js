@@ -6,11 +6,12 @@ define([
     'facebook',
     'views/login',
     'views/layout',
-    'views/reports',
     'views/bootstrap',
+    'views/map',
+    'views/reports',
     'collections/reports',
     'models/user'
-], function ($, Backbone, FB, LoginView, Layout, ReportsView, BootstrapView, ReportsCollection, UserModel) {
+], function ($, Backbone, FB, LoginView, Layout, BootstrapView, MapView, ReportsView, ReportsCollection, UserModel) {
     'use strict';
 
     //Init Facebook connection
@@ -28,7 +29,9 @@ define([
             'user':         'user',
             'user/:id':     'user',
             'bootstrap':    'bootstrap',
-            'reports':      'reports'
+            'map':          'map',
+            'reports':      'reports',
+            'reports/:id':  'reports'
         },
 
         index: function() {
@@ -61,27 +64,29 @@ define([
             bootstrapLayout.render();
         },
 
+        map: function() {
+            console.log('routing to map');
+            var mapLayout = new MapView.MapLayout();
+            var bannerLayout = new Layout.BannerLayout();
+            mapLayout.render();
+            bannerLayout.render();
+        },
+
         reports: function() {
             console.log('routing to reports');
 
-            var mainLayout = new Layout.MainLayout();
-            mainLayout.render();
-
-            var authorized = UserModel.checkLogin();
-            if(authorized) {
-                var bannerLayout = new Layout.BannerLayout({model: UserModel});
-                bannerLayout.render();
-            }
-
-            var reportscollection = new ReportsCollection();
-            reportscollection.fetch({success: function(){
-                var reportsLayout = new ReportsView.MapLayout({collection: reportscollection});
+            var reportsCollection = new ReportsCollection();
+            reportsCollection.fetch({success: function(){
+                var reportsLayout = new ReportsView.ReportsLayout({collection: reportsCollection});
                 reportsLayout.render();
             }, error: function(){
                 console.log('Error: Could not load data');
             }});
 
-        }
+            var bannerLayout = new Layout.BannerLayout();
+            bannerLayout.render();
+        },
+
 
     });
 
