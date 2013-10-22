@@ -5,7 +5,7 @@
         <h4 class="panel-title">Nya rapporter</h4>
       </div>
       <div class="list-group">
-        <% for(i=0; i<reports.length; i++) { %><a href="#" class="list-group-item"><%=reports[i].title%></a><% } %>
+        <% for(i=0; i<reports.length; i++) { %><a href="#/reports/<%=reports[i].id%>" class="list-group-item"><%=reports[i].title%></a><% } %>
       </div>
     </div>
   </div>
