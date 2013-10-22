@@ -14,3 +14,41 @@
   padding-left: @padding-base-horizontal;
   padding-right: @padding-base-horizontal;
 }
+
+// Navbar heading
+//
+// Groups `.navbar-brand` and `.navbar-toggle` into a single component for easy
+// styling of responsive aspects.
+
+.navbar-header {
+  .clearfix();
+  .text-center;
+
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .navbar-brand {
+    float: none;
+  }
+  @media (min-width: @grid-float-breakpoint) {
+    float: none;
+  }
+}
+
+// Navbar logo
+.navbar-logo {
+  background: url('../images/appicon.png') center no-repeat;
+  background-size: contain;
+
+  display: block;
+  height: (@navbar-height + @padding-base-vertical);
+  width: 100px;
+
+  position: fixed;
+  top: @padding-small-vertical;
+  left: 50%;
+  margin-left: -50px;
+
+  .hide-text();
+}
