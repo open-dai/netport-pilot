@@ -5,7 +5,8 @@
 // Fix the top/bottom navbars when screen real estate supports it
 .navbar-fixed-top {
 
-  // Fake a margin bottom that stays in place when content scrolls below th navbar
+  // Fake a margin that stays in place when content scrolls below the navbar
+  border-top: (@grid-gutter-width / 2) solid @body-bg;
   border-bottom: (@grid-gutter-width / 2) solid @body-bg;
 
   // Line up with grid
@@ -34,21 +35,4 @@
   @media (min-width: @grid-float-breakpoint) {
     float: none;
   }
-}
-
-// Navbar logo
-.navbar-logo {
-  background: url('../images/appicon.png') center no-repeat;
-  background-size: contain;
-
-  display: block;
-  height: (@navbar-height + @padding-base-vertical);
-  width: 100px;
-
-  position: fixed;
-  top: @padding-small-vertical;
-  left: 50%;
-  margin-left: -50px;
-
-  .hide-text();
 }
