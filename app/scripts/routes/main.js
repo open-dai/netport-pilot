@@ -75,16 +75,24 @@ define([
             bannerLayout.render();
         },
 
-        reports: function() {
+        reports: function(id) {
             console.log('routing to reports');
-            var that = this;
-            var reportsCollection = new ReportsCollection();
-            reportsCollection.fetch({success: function(){
-                var reportsLayout = new ReportsView.ReportsLayout({collection: reportsCollection});
-                reportsLayout.render();
-            }, error: function(){
-                console.log('Error: Could not load data');
-            }});
+
+            //Checking if id is specified.
+            if(id) {
+                console.log('Rendering report: '+id);
+
+            } else {
+                var reportsCollection = new ReportsCollection();
+                reportsCollection.fetch({success: function(){
+                    var reportsLayout = new ReportsView.ReportsLayout({collection: reportsCollection});
+                    reportsLayout.render();
+                }, error: function(){
+                    console.log('Error: Could not load data');
+                }});
+            }
+            
+            
 
             var bannerLayout = new Layout.BannerLayout();
             bannerLayout.render();
