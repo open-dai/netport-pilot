@@ -31,15 +31,18 @@ define([
             'bootstrap':    'bootstrap',
             'map':          'map',
             'reports':      'reports',
-            'reports/:id':  'reports'
+            'reports/:id':  'reports',
+            'logout':       'logout'
         },
 
         index: function() {
             console.log('routing to startup');
             var startupLayout = new Layout.StartupLayout();
-            var bannerLayout = new Layout.BannerLayout();
             startupLayout.render();
-            bannerLayout.render();
+            UserModel.login(function(){
+                var bannerLayout = new Layout.BannerLayout({model: UserModel});
+                bannerLayout.render();
+            });
         },
 
         login: function() {
@@ -74,7 +77,7 @@ define([
 
         reports: function() {
             console.log('routing to reports');
-
+            var that = this;
             var reportsCollection = new ReportsCollection();
             reportsCollection.fetch({success: function(){
                 var reportsLayout = new ReportsView.ReportsLayout({collection: reportsCollection});
@@ -86,6 +89,18 @@ define([
             var bannerLayout = new Layout.BannerLayout();
             bannerLayout.render();
         },
+
+        logout: function() {
+            console.log('routing to logout');
+            var that = this;
+            if(FB) {
+                FB.logout(function(){
+                    UserModel.set({authorized: false});
+                    console.log('Logged out');
+                    that.navigate('', {trigger:true});
+                });
+            }
+        }
 
 
     });

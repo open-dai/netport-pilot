@@ -20,18 +20,17 @@ function($, Backbone, FB) {
             console.log('authorized '+this.get('username'));
         },
 
-        checkLogin: function() {
+        checkLogin: function(callback) {
             var x = false;
             if(this.get('authorized') === false) {
-                this.login();
-                x  = true;
-            } else {
-                x = false;
+                this.login(function(){
+                    x  = true;
+                });
             }
-            return x;
+            callback(x);
         },
 
-        login: function() {
+        login: function(callback) {
             var that = this;
             FB.login(function(response) {
                 if (response.authResponse) {
@@ -46,12 +45,15 @@ function($, Backbone, FB) {
                             'image': response.picture.data.url,
                             'authorized': true
                         });
+                        callback();
                         console.log('Good to see you, ' + response.name + '.');
                     });
                 } else {
                     console.log('User cancelled login or did not fully authorize.');
                 }
             });
+
+            
         }
     });
 
