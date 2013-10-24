@@ -56,9 +56,7 @@ define([
 
         user: function(id) {
             console.log('routing to user ' + id);
-            var mainLayout = new Layout.MainLayout();
             var bannerLayout = new Layout.BannerLayout();
-            mainLayout.render();
             bannerLayout.render();
         },
 
