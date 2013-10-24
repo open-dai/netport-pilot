@@ -38,11 +38,13 @@ define([
 
         index: function() {
             console.log('routing to startup');
+            var that = this;
             var startupLayout = new Layout.StartupLayout();
             startupLayout.render();
             UserModel.login(function(){
                 var bannerLayout = new Layout.BannerLayout({model: UserModel});
                 bannerLayout.render();
+                that.navigate('reports', {trigger: true});
             });
         },
 
