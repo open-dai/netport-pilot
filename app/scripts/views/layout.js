@@ -15,16 +15,6 @@ define([
     */
     var View = {};
 
-    View.MainLayout = Backbone.View.extend({
-        el: '#main',
-        template: JST['app/scripts/templates/layout.ejs'],
-        render: function() {
-            console.log('render main');
-            this.$el.html(this.template);
-            return this;
-        }
-    });
-
     View.BannerLayout = Backbone.View.extend({
         el: '#banner',
         template: JST['app/scripts/templates/banner.ejs'],

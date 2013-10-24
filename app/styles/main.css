@@ -6405,7 +6405,25 @@ td.visible-print {
 #banner:after {
   clear: both;
 }
+#banner .brand {
+  background: url('../images/appicon.png') center no-repeat;
+  background-size: contain;
+  display: block;
+  height: 82px;
+  width: 67px;
+  position: fixed;
+  z-index: 1031;
+  top: 10px;
+  left: 50%;
+  margin-left: -33px;
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
 .navbar-fixed-top {
+  border-top: 5px solid #283032;
   border-bottom: 5px solid #283032;
   right: 5px;
   left: 5px;
@@ -6449,22 +6467,6 @@ td.visible-print {
   .navbar-header {
     float: none;
   }
-}
-.navbar-logo {
-  background: url('../images/appicon.png') center no-repeat;
-  background-size: contain;
-  display: block;
-  height: 58px;
-  width: 100px;
-  position: fixed;
-  top: 4px;
-  left: 50%;
-  margin-left: -50px;
-  font: 0/0 a;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
 }
 .panel {
   border: none;
