@@ -10,8 +10,9 @@ define([
     'views/map',
     'views/reports',
     'collections/reports',
-    'models/user'
-], function ($, Backbone, FB, LoginView, Layout, BootstrapView, MapView, ReportsView, ReportsCollection, UserModel) {
+    'models/user',
+    'models/report'
+], function ($, Backbone, FB, LoginView, Layout, BootstrapView, MapView, ReportsView, ReportsCollection, UserModel, ReportModel) {
     'use strict';
 
     //Init Facebook connection
@@ -44,7 +45,7 @@ define([
             UserModel.login(function(){
                 var bannerLayout = new Layout.BannerLayout({model: UserModel});
                 bannerLayout.render();
-                that.navigate('reports', {trigger: true});
+                that.navigate('/reports', {trigger: true});
             });
         },
 
@@ -79,10 +80,20 @@ define([
         reports: function(id) {
             console.log('routing to reports');
 
+            var bannerLayout = new Layout.BannerLayout();
+            bannerLayout.render();
+
             //Checking if id is specified.
             if(id) {
                 console.log('Rendering report: '+id);
-
+                
+                var reportModel = new ReportModel();
+                reportModel.url = 'http://localhost:8001/api/reports/'+id;
+                reportModel.fetch({success: function(data){
+                    var singleReport = new ReportsView.SingleReport({model: data});
+                    singleReport.render();
+                }});
+                
             } else {
                 var reportsCollection = new ReportsCollection();
                 reportsCollection.fetch({success: function(){
@@ -91,11 +102,8 @@ define([
                 }, error: function(){
                     console.log('Error: Could not load data');
                 }});
+                
             }
-            
-
-            var bannerLayout = new Layout.BannerLayout();
-            bannerLayout.render();
         },
 
         createReport: function() {

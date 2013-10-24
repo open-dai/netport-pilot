@@ -21,6 +21,15 @@ define([
         }
     });
 
+    View.SingleReport = Backbone.View.extend({
+        el: '#main',
+        template: JST['app/scripts/templates/singleReport.ejs'],
+        render: function() {
+            this.$el.html(this.template({'report': this.model.toJSON()}));
+            return this;
+        }
+    });
+
     View.ReportCreate = Backbone.View.extend({
         el: '#main',
         template: JST['app/scripts/templates/createReport.ejs'],

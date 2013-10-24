@@ -79,7 +79,7 @@ app.get('/api/reports', function(req, res){
 app.get('/api/reports/:id', function(req, res){
   var id = req.params.id;
   queryDB('SELECT * FROM Reports.reports WHERE id = '+id+' LIMIT 1', function(result){
-    res.send(result);
+    res.send(result[0]);
   });
 });
 
