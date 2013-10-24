@@ -24,15 +24,16 @@ define([
 
     var MainRouter = Backbone.Router.extend({
         routes: {
-            '':             'index',
-            'login':        'login',
-            'user':         'user',
-            'user/:id':     'user',
-            'bootstrap':    'bootstrap',
-            'map':          'map',
-            'reports':      'reports',
-            'reports/:id':  'reports',
-            'logout':       'logout'
+            '':               'index',
+            'login':          'login',
+            'user':           'user',
+            'user/:id':       'user',
+            'bootstrap':      'bootstrap',
+            'map':            'map',
+            'reports':        'reports',
+            'reports/create': 'createReport',
+            'reports/:id':    'reports',
+            'logout':         'logout'
         },
 
         index: function() {
@@ -92,10 +93,21 @@ define([
                 }});
             }
             
-            
 
             var bannerLayout = new Layout.BannerLayout();
             bannerLayout.render();
+        },
+
+        createReport: function() {
+            console.log('routing to create reports');
+
+            var mainLayout = new Layout.MainLayout();
+            var bannerLayout = new Layout.BannerLayout();
+            mainLayout.render();
+            bannerLayout.render();
+
+            var createReportView = new ReportsView.ReportCreate();
+            createReportView.render();
         },
 
         logout: function() {
