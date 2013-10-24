@@ -11,6 +11,9 @@ require(['config'], function() {
             pushState: false,
             root: app.root
         });
+
+        
+        Backbone.emulateJSON = true;
     });
 
 });
