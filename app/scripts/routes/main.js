@@ -101,9 +101,7 @@ define([
         createReport: function() {
             console.log('routing to create reports');
 
-            var mainLayout = new Layout.MainLayout();
             var bannerLayout = new Layout.BannerLayout();
-            mainLayout.render();
             bannerLayout.render();
 
             var createReportView = new ReportsView.ReportCreate();
