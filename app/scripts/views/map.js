@@ -26,6 +26,13 @@ define([
                 maxZoom: 18
             }).addTo(map);
 
+            _.each(this.collection.models, function(model){
+                if(model.get('lat') !== null) {
+                    var marker = new L.Marker([model.get('lat'), model.get('lng')]);
+                    marker.addTo(map);
+                }
+            });
+
             return this;
         }
     });

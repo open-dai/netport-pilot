@@ -71,9 +71,15 @@ define([
 
         map: function() {
             console.log('routing to map');
-            var mapLayout = new MapView.MapLayout();
+            var reportsCollection = new ReportsCollection();
+            reportsCollection.fetch({success: function(){
+                var mapLayout = new MapView.MapLayout({collection: reportsCollection});
+                mapLayout.render();
+            }, error: function(){
+                console.log('Error: Could not load data');
+            }});
+            
             var bannerLayout = new Layout.BannerLayout();
-            mapLayout.render();
             bannerLayout.render();
         },
 
