@@ -10,9 +10,10 @@ define([
     'views/map',
     'views/reports',
     'collections/reports',
+    'collections/types',
     'models/user',
     'models/report'
-], function ($, Backbone, FB, LoginView, Layout, BootstrapView, MapView, ReportsView, ReportsCollection, UserModel, ReportModel) {
+], function ($, Backbone, FB, LoginView, Layout, BootstrapView, MapView, ReportsView, ReportsCollection, TypesCollection, UserModel, ReportModel) {
     'use strict';
 
     //Init Facebook connection
@@ -118,8 +119,11 @@ define([
             var bannerLayout = new Layout.BannerLayout();
             bannerLayout.render();
 
-            var createReportView = new ReportsView.ReportCreate();
-            createReportView.render();
+            var typesCollection = new TypesCollection();
+            typesCollection.fetch({success: function(){
+                var createReportView = new ReportsView.ReportCreate({collection: typesCollection});
+                createReportView.render();    
+            }});
         },
 
         logout: function() {

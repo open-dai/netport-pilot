@@ -42,8 +42,7 @@ var dbConn = 'pg://user:user@194.116.110.159:35432/ReportsVDB';
 var data = {
     response: 200,
     dataType: 'Application/JSON',
-    license: '',
-    reports: null
+    license: ''
 };
 
 function queryDB(query, callback) {
@@ -70,7 +69,7 @@ app.get('/report/:id', function(req, res){
 });
 */
 app.get('/api/reports', function(req, res){
-  queryDB('SELECT Reports.reports.id, Reports.reports.title, Reports.reports.lat, Reports.reports.lng, Reports.reports.types_id, Reports.reports.description, Reports.types.title AS type FROM Reports.reports INNER JOIN Reports.types ON Reports.reports.types_id = Reports.types.id', function(result){
+  queryDB('SELECT Reports.reports.id, Reports.reports.lat, Reports.reports.lng, Reports.reports.types_id, Reports.reports.description, Reports.types.title AS type FROM Reports.reports INNER JOIN Reports.types ON Reports.reports.types_id = Reports.types.id', function(result){
     data.reports = result;
     res.send(data);
   });
@@ -86,10 +85,16 @@ app.get('/api/reports/:id', function(req, res){
 app.post('/api/reports', function(req, res){
     console.log('Saving data');
     var data = JSON.parse(req.body.model);
-    queryDB("INSERT INTO Reports.reports(title, types_id, description, lat, lng) VALUES('"+data.title+"', "+data.types_id+", '"+data.description+"', '"+data.lat+"', '"+data.lng+"')", function(result){
+    queryDB("INSERT INTO Reports.reports(description, lat, lng, types_id, status_id) VALUES('"+data.description+"', "+data.lat+", "+data.lng+", "+data.types_id+", 1)", function(result){
         res.send(200, result);
     });
 
+});
+
+app.get('/api/status', function(req, res){
+    queryDB('SELECT * FROM Reports.status', function(result){
+        console.log(result);
+    });
 });
 
 app.put('/api/reports/:id', function(req, res){
@@ -99,6 +104,13 @@ app.put('/api/reports/:id', function(req, res){
   queryDB("UPDATE Reports.reports SET title = '"+report.title+"', description = '"+report.description+"' WHERE id = "+id+"", function(){
     res.send(200, 'saving'+id);
   });
+});
+
+app.get('/api/types', function(req, res){
+    queryDB('SELECT * FROM Reports.types', function(result){
+        console.log(result);
+        res.send(200, result);
+    });
 });
 
 app.listen(port);

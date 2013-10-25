@@ -47,7 +47,8 @@ define([
             $('#lng').val(position.coords.longitude);
         },
         render: function() {
-            this.$el.html(this.template);
+            console.log(this.collection);
+            this.$el.html(this.template({'types': this.collection.toJSON()}));
             return this;
         },
         save: function() {
@@ -55,7 +56,6 @@ define([
             var newReport = new ReportModel();
             newReport.url = 'http://localhost:8001/api/reports';
             newReport.set({
-                'title': $('#title').val(),
                 'description': $('#description').val(),
                 'types_id': $('#types_id').val(),
                 'lat': $('#lat').val(),

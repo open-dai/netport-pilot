@@ -1,14 +1,13 @@
 Skapa ny rapport
-<input type="text" />
 <label for="position">Position</label>
 X<input id="lat" type="text" /> Y<input id="lng" type="text" />
-<label for="category">Category</label>
+
+
+<label for="types_id">Kategori</label>
 <select id="types_id">
-    <option value="1">Test</option>
-</select>
-<label for="damage">Report</label>
-<select id="title">
-    <option>Vattenläcka</option>
+    <% for(var i=0; i<types.length; i++) { %>
+        <option value="<%=types[i].id%>"><%=types[i].title%></option>
+    <% } %>
 </select>
 <textarea id="description" placeholder="Description"></textarea>
 <button>Save</button>
