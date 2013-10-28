@@ -69,7 +69,7 @@ app.get('/report/:id', function(req, res){
 });
 */
 app.get('/api/reports', function(req, res){
-  queryDB('SELECT Reports.reports.id, Reports.reports.lat, Reports.reports.lng, Reports.reports.types_id, Reports.reports.description, Reports.types.title AS type FROM Reports.reports INNER JOIN Reports.types ON Reports.reports.types_id = Reports.types.id', function(result){
+  queryDB('SELECT Reports.reports.id, Reports.reports.lat, Reports.reports.lng, Reports.reports.types_id, Reports.reports.description, Reports.status_id, Reports.types.title AS type, Reports.status.title AS status FROM Reports.reports INNER JOIN Reports.types ON Reports.reports.types_id = Reports.types.id INNER JOIN Reports.status ON Reports.reports.status_id = Reports.status.id', function(result){
     data.reports = result;
     res.send(data);
   });
