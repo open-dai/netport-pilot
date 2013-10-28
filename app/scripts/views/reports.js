@@ -47,7 +47,6 @@ define([
             $('#lng').val(position.coords.longitude);
         },
         render: function() {
-            console.log(this.collection);
             this.$el.html(this.template({'types': this.collection.toJSON()}));
             return this;
         },
