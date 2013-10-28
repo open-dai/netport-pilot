@@ -79,7 +79,7 @@ define([
             }, error: function(){
                 console.log('Error: Could not load data');
             }});
-            
+
             var bannerLayout = new Layout.BannerLayout();
             bannerLayout.render();
         },
@@ -93,14 +93,14 @@ define([
             //Checking if id is specified.
             if(id) {
                 console.log('Rendering report: '+id);
-                
+
                 var reportModel = new ReportModel();
                 reportModel.url = 'http://localhost:8001/api/reports/'+id;
                 reportModel.fetch({success: function(data){
                     var singleReport = new ReportsView.SingleReport({model: data});
                     singleReport.render();
                 }});
-                
+
             } else {
                 var reportsCollection = new ReportsCollection();
                 reportsCollection.fetch({success: function(){
@@ -109,7 +109,7 @@ define([
                 }, error: function(){
                     console.log('Error: Could not load data');
                 }});
-                
+
             }
         },
 
@@ -122,7 +122,7 @@ define([
             var typesCollection = new TypesCollection();
             typesCollection.fetch({success: function(){
                 var createReportView = new ReportsView.ReportCreate({collection: typesCollection});
-                createReportView.render();    
+                createReportView.render();
             }});
         },
 
