@@ -50,12 +50,12 @@ define([
             console.log('routing to login');
             var that = this;
             UserModel.login(function(){
-                that.navigate('#/reports', {trigger: true});
-                var bannerLayout = new Layout.BannerLayout({model: UserModel});
-                bannerLayout.render();
+                //that.navigate('#/reports', {trigger: true});
             });
+            var bannerLayout = new Layout.BannerLayout({model: UserModel});
+            bannerLayout.render();
+
             var loginLayout = new LoginView.Login();
-            
             loginLayout.render();
             
         },

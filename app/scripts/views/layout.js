@@ -18,15 +18,26 @@ define([
     View.BannerLayout = Backbone.View.extend({
         el: '#banner',
         template: JST['app/scripts/templates/banner.ejs'],
+        initialize: function() {
+            if(this.model) {
+                this.model.on('change', this.test, this);
+            }
+        },
         render: function() {
             console.log('render banner');
-            console.log(this);
-            this.$el.html(this.template());
+            if(this.model){
+                this.$el.html(this.template({'user': this.model.toJSON()}));
+            } else {
+                this.$el.html(this.template);
+            }
 
             var navigation = new View.NavigationLayout();
             navigation.render();
 
             return this;
+        },
+        test: function(){
+            this.render();
         }
     });
 

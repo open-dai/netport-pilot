@@ -58,7 +58,8 @@ define([
                 'description': $('#description').val(),
                 'types_id': $('#types_id').val(),
                 'lat': $('#lat').val(),
-                'lng': $('#lng').val()
+                'lng': $('#lng').val(),
+                'fb_id': $('#fb_id').val()
             });
 
             newReport.save();
