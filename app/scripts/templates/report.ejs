@@ -2,33 +2,33 @@
   switch (report.status_id) {
     case 2:
       // Handläggs
-      report.badgeClass = "label-info";
+      report.alertClass = "alert-info";
       break;
     case 3:
       // Behandlas
-      report.badgeClass = "label-primary";
+      report.alertClass = "alert-info";
       break;
     case 4:
       // Åtgärdad
-      report.badgeClass = "label-success";
+      report.alertClass = "alert-success";
       break;
     case 5:
       // Åtgärdas ej
-      report.badgeClass = "label-warning";
+      report.alertClass = "alert-danger";
       break;
     case 1:
     default:
       // Ej granskad
-      report.badgeClass = "label-default";
+      report.alertClass = "alert-info";
   }
 %>
 
 <div class="panel panel-default">
-  <div class="panel-heading clearfix">
-    <span class="label <%=report.badgeClass%> pull-right"><%=report.status%></span>
-    <h3 class="panel-title"><%=report.type%></h3>
+  <div class="panel-heading">
+    <h3><%=report.type%></h3>
   </div>
   <div class="panel-body">
+    <div class="alert <%=report.alertClass%>"><%=report.status%></div>
     <%=report.description%>
   </div>
   <div>

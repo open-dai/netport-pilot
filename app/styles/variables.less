@@ -1,19 +1,4 @@
 
-// Scaffolding
-// -------------------------
-
-@body-bg:               @base00; // All countent should be placed in containers with light background
-@text-color:            @base01;
-
-
-// Links
-// -------------------------
-
-@link-color:            @brand-primary;
-@link-hover-color:      mix(black, @link-color, 10%);
-@link-contrast-color:   mix(white, @link-color, 90%);
-
-
 // Components
 // -------------------------
 
@@ -26,11 +11,8 @@
 @padding-small-vertical:         4px;
 @padding-small-horizontal:       5px;
 
-@component-active-bg:            @base0C;
-@component-active-color:         mix(white, @brand-primary, 90%);
-
-@border-radius-base:             0px;
-@border-radius-large:            0px;
+@border-radius-base:             1px;
+@border-radius-large:            3px;
 @border-radius-small:            0px;
 
 
@@ -45,83 +27,18 @@
 @grid-float-breakpoint:     @screen-phone;
 
 
-// Form states and alerts
+// Forms
 // -------------------------
 
-@state-primary-text:             white;
-@state-primary-bg:               @brand-primary;
-@state-primary-border:           @body-bg;
-
-@state-warning-text:             white;
-@state-warning-bg:               @brand-warning;
-@state-warning-border:           @body-bg;
-
-@state-danger-text:              white;
-@state-danger-bg:                @brand-danger;
-@state-danger-border:            @body-bg;
-
-@state-success-text:             white;
-@state-success-bg:               @brand-success;
-@state-success-border:           @body-bg;
-
-@state-info-text:                white;
-@state-info-bg:                  @brand-info;
-@state-info-border:              @body-bg;
-
-
-// Labels
-// -------------------------
-
-@label-default-color:         @base02;
-@label-default-bg:            @base07;
-@label-primary-color:         @brand-primary;
-@label-primary-bg:            @label-default-bg;
-@label-success-color:         @brand-success;
-@label-success-bg:            @label-default-bg;
-@label-info-color:            @brand-info;
-@label-info-bg:               @label-default-bg;
-@label-warning-color:         @brand-warning;
-@label-warning-bg:            @label-default-bg;
-@label-danger-color:          @brand-danger;
-@label-danger-bg:             @label-default-bg;
-
-@label-color:                 #fff;
-@label-link-hover-color:      #fff;
+@input-border-radius:             @border-radius-large;
 
 
 // Panels
 // -------------------------
+@panel-border-radius:             @border-radius-small;
 
-@panel-bg:                    @base07;
-@panel-inner-border:          @body-bg;
-@panel-footer-bg:             @base06;
 
-@panel-default-text:          @base03;
-@panel-default-border:        @body-bg;
-@panel-default-heading-bg:    @base06;
+// Buttons
+// -------------------------
 
-@panel-primary-text:          @state-primary-text;
-@panel-primary-bg:            @state-primary-bg;
-@panel-primary-border:        @body-bg;
-@panel-primary-heading-bg:    darken(@panel-primary-bg, 10%);
-
-@panel-success-text:          @state-success-text;
-@panel-success-bg:            @state-success-bg;
-@panel-success-border:        @body-bg;
-@panel-success-heading-bg:    darken(@panel-success-bg, 10%);
-
-@panel-warning-text:          @state-warning-text;
-@panel-warning-bg:            @state-warning-bg;
-@panel-warning-border:        @state-warning-border;
-@panel-warning-heading-bg:    darken(@panel-warning-bg, 10%);
-
-@panel-danger-text:           @state-danger-text;
-@panel-danger-bg:             @state-danger-bg;
-@panel-danger-border:         @state-danger-border;
-@panel-danger-heading-bg:     darken(@panel-danger-bg, 10%);
-
-@panel-info-text:             @state-info-text;
-@panel-info-bg:               @state-info-bg;
-@panel-info-border:           @state-info-border;
-@panel-info-heading-bg:       darken(@panel-info-bg, 10%);
-
+@button-border-radius:            @border-radius-large;
