@@ -20,7 +20,8 @@ define([
         template: JST['app/scripts/templates/banner.ejs'],
         render: function() {
             console.log('render banner');
-            this.$el.html(this.template);
+            console.log(this);
+            this.$el.html(this.template());
 
             var navigation = new View.NavigationLayout();
             navigation.render();
@@ -44,7 +45,7 @@ define([
         template: JST['app/scripts/templates/startup.ejs'],
         render: function() {
             console.log('render startup');
-            this.$el.html(this.template());
+            this.$el.html(this.template);
             return this;
         }
     });

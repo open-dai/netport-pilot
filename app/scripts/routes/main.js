@@ -40,22 +40,24 @@ define([
 
         index: function() {
             console.log('routing to startup');
-            var that = this;
             var startupLayout = new Layout.StartupLayout();
             startupLayout.render();
-            UserModel.login(function(){
-                var bannerLayout = new Layout.BannerLayout({model: UserModel});
-                bannerLayout.render();
-                that.navigate('/reports', {trigger: true});
-            });
+            var bannerLayout = new Layout.BannerLayout();
+            bannerLayout.render();
         },
 
         login: function() {
             console.log('routing to login');
+            var that = this;
+            UserModel.login(function(){
+                that.navigate('#/reports', {trigger: true});
+                var bannerLayout = new Layout.BannerLayout({model: UserModel});
+                bannerLayout.render();
+            });
             var loginLayout = new LoginView.Login();
-            var bannerLayout = new Layout.BannerLayout();
+            
             loginLayout.render();
-            bannerLayout.render();
+            
         },
 
         user: function(id) {
