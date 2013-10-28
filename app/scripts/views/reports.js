@@ -4,8 +4,9 @@ define([
     'underscore',
     'backbone',
     'templates',
-    'models/report'
-], function ($, _, Backbone, JST, ReportModel) {
+    'models/report',
+    'models/user'
+], function ($, _, Backbone, JST, ReportModel, UserModel) {
 
     'use strict';
 
@@ -23,7 +24,7 @@ define([
 
     View.SingleReport = Backbone.View.extend({
         el: '#main',
-        template: JST['app/scripts/templates/singleReport.ejs'],
+        template: JST['app/scripts/templates/report.ejs'],
         render: function() {
             this.$el.html(this.template({'report': this.model.toJSON()}));
             return this;
@@ -59,7 +60,7 @@ define([
                 'types_id': $('#types_id').val(),
                 'lat': $('#lat').val(),
                 'lng': $('#lng').val(),
-                'fb_id': $('#fb_id').val()
+                'fb_id': UserModel.get('fb_id')
             });
 
             newReport.save();
