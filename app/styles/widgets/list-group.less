@@ -10,6 +10,14 @@
 
   // Specify a color for unlinked items
   color: @list-group-color;
+
+  // Align labels within list items
+  > .label {
+    float: right;
+  }
+  > .label + .label {
+    margin-right: 5px;
+  }
 }
 
 // Custom content options

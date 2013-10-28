@@ -5,17 +5,44 @@
         <h4 class="panel-title">Nya rapporter</h4>
       </div>
       <div class="list-group">
-        <% for(i=0; i<reports.length; i++) { %>
-        <a href="#/reports/<%=reports[i].id%>" class="list-group-item">
-          <h4 class="list-group-item-heading"><%=reports[i].title%></h4>
-          <p class="list-group-item-text"><strong><%=reports[i].type%>:</strong> <%=reports[i].description%></p>
+
+        <% $(reports).each(function(i, report) { %>
+        <%
+          switch (report.status_id) {
+            case 2:
+              // Handläggs
+              report.badgeClass = "label-info";
+              break;
+            case 3:
+              // Behandlas
+              report.badgeClass = "label-primary";
+              break;
+            case 4:
+              // Åtgärdad
+              report.badgeClass = "label-success";
+              break;
+            case 5:
+              // Åtgärdas ej
+              report.badgeClass = "label-warning";
+              break;
+            case 1:
+            default:
+              // Ej granskad
+              report.badgeClass = "label-default";
+          }
+        %>
+        <a href="#/reports/<%=report.id%>" class="list-group-item">
+          <span class="label <%=report.badgeClass%>"><%=report.status%></span>
+          <h4 class="list-group-item-heading"><%=report.title%></h4>
+          <p class="list-group-item-text"><strong><%=report.type%>:</strong> <%=report.description%></p>
         </a>
-        <% } %>
+        <% }); // $(reports).each() %>
+
       </div>
     </div>
     <div class="text-center">
       <span class="glyphicon glyphicon-thumbs-up" style="font-size:72px;"></span><br>
-      <strong>Det finns inte fler rapporter</strong>
+      <strong>Slut på rapporter</strong>
     </div>
   </div>
 </div>
