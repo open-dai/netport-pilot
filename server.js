@@ -69,16 +69,16 @@ app.get('/report/:id', function(req, res){
 });
 */
 app.get('/api/reports', function(req, res){
-  queryDB('SELECT Reports.reports.id, Reports.reports.lat, Reports.reports.lng, Reports.reports.types_id, Reports.reports.description, Reports.status_id, Reports.reports.added, Reports.types.title AS type, Reports.status.title AS status FROM Reports.reports INNER JOIN Reports.types ON Reports.reports.types_id = Reports.types.id INNER JOIN Reports.status ON Reports.reports.status_id = Reports.status.id ORDER BY Reports.reports.added DESC', function(result){
+  queryDB('SELECT Reports.*, Reports.types.title AS type, Reports.status.title AS status FROM Reports.reports INNER JOIN Reports.types ON Reports.reports.types_id = Reports.types.id INNER JOIN Reports.status ON Reports.reports.status_id = Reports.status.id ORDER BY Reports.reports.added DESC', function(result){
     data.reports = result;
-    res.send(data);
+    res.send(200, data);
   });
 });
 
 app.get('/api/reports/:id', function(req, res){
   var id = req.params.id;
   queryDB('select reports.reports.*, reports.types.title AS type, reports.status.title AS status FROM reports.reports INNER JOIN reports.types ON reports.reports.types_id = reports.types.id INNER JOIN reports.status ON reports.reports.status_id = reports.status.id WHERE reports.reports.id = '+id+' LIMIT 1', function(result){
-    res.send(result[0]);
+    res.send(200, result[0]);
   });
 });
 
