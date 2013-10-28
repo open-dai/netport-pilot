@@ -69,7 +69,7 @@ app.get('/report/:id', function(req, res){
 });
 */
 app.get('/api/reports', function(req, res){
-  queryDB('SELECT Reports.reports.id, Reports.reports.lat, Reports.reports.lng, Reports.reports.types_id, Reports.reports.description, Reports.status_id, Reports.types.title AS type, Reports.status.title AS status FROM Reports.reports INNER JOIN Reports.types ON Reports.reports.types_id = Reports.types.id INNER JOIN Reports.status ON Reports.reports.status_id = Reports.status.id', function(result){
+  queryDB('SELECT Reports.reports.id, Reports.reports.lat, Reports.reports.lng, Reports.reports.types_id, Reports.reports.description, Reports.status_id, Reports.reports.added, Reports.types.title AS type, Reports.status.title AS status FROM Reports.reports INNER JOIN Reports.types ON Reports.reports.types_id = Reports.types.id INNER JOIN Reports.status ON Reports.reports.status_id = Reports.status.id ORDER BY Reports.reports.added DESC', function(result){
     data.reports = result;
     res.send(data);
   });
@@ -93,7 +93,7 @@ app.post('/api/reports', function(req, res){
 
 app.get('/api/status', function(req, res){
     queryDB('SELECT * FROM Reports.status', function(result){
-        console.log(result);
+        res.send(200, result);
     });
 });
 
@@ -108,7 +108,6 @@ app.put('/api/reports/:id', function(req, res){
 
 app.get('/api/types', function(req, res){
     queryDB('SELECT * FROM Reports.types', function(result){
-        console.log(result);
         res.send(200, result);
     });
 });
