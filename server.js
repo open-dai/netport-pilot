@@ -77,7 +77,7 @@ app.get('/api/reports', function(req, res){
 
 app.get('/api/reports/:id', function(req, res){
   var id = req.params.id;
-  queryDB('SELECT * FROM Reports.reports WHERE id = '+id+' LIMIT 1', function(result){
+  queryDB('select reports.reports.*, reports.types.title, reports.status.title FROM reports.reports INNER JOIN reports.types ON reports.reports.types_id = reports.types.id INNER JOIN reports.status ON reports.reports.status_id = reports.status.id WHERE reports.reports.id = '+id+' LIMIT 1', function(result){
     res.send(result[0]);
   });
 });
