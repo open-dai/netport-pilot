@@ -1,4 +1,3 @@
-
 //
 // List groups
 // --------------------------------------------------
@@ -8,27 +7,11 @@
 
 .list-group-item {
 
-  // Specify a color for unlinked items
-  color: @list-group-color;
-
   // Align labels within list items
   > .label {
     float: right;
   }
   > .label + .label {
     margin-right: 5px;
-  }
-}
-
-// Custom content options
-// -------------------------
-
-.list-group-item-heading {
-
-  &,
-  a.list-group-item & {
-
-    // Specify a color for headings
-    color: mix(@list-group-color, @list-group-bg, 70%);
   }
 }
