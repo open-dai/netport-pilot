@@ -29,7 +29,7 @@ define([
             _.each(this.collection.models, function(model){
                 if(model.get('lat') !== null) {
                     var marker = new L.Marker([model.get('lat'), model.get('lng')]);
-                    marker.bindPopup(model.get('title'));
+                    marker.bindPopup(model.get('description'));
                     marker.addTo(map);
                 }
             });
