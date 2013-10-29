@@ -69,7 +69,7 @@ app.get('/report/:id', function(req, res){
 });
 */
 app.get('/api/reports', function(req, res){
-  queryDB('SELECT Reports.*, Reports.types.title AS type, Reports.status.title AS status FROM Reports.reports INNER JOIN Reports.types ON Reports.reports.types_id = Reports.types.id INNER JOIN Reports.status ON Reports.reports.status_id = Reports.status.id ORDER BY Reports.reports.added DESC', function(result){
+  queryDB('SELECT Reports.reports.*, Reports.types.title AS type, Reports.status.title AS status FROM Reports.reports INNER JOIN Reports.types ON Reports.reports.types_id = Reports.types.id INNER JOIN Reports.status ON Reports.reports.status_id = Reports.status.id ORDER BY Reports.reports.added DESC', function(result){
     data.reports = result;
     res.send(200, data);
   });
@@ -85,7 +85,7 @@ app.get('/api/reports/:id', function(req, res){
 app.post('/api/reports', function(req, res){
     console.log('Saving data');
     var data = JSON.parse(req.body.model);
-    queryDB("INSERT INTO Reports.reports(description, lat, lng, types_id, status_id) VALUES('"+data.description+"', "+data.lat+", "+data.lng+", "+data.types_id+", 1)", function(result){
+    queryDB("INSERT INTO Reports.reports(description, lat, lng, types_id, status_id, fb_id) VALUES('"+data.description+"', "+data.lat+", "+data.lng+", "+data.types_id+", 1, "+data.fb_id+")", function(result){
         res.send(200, result);
     });
 
