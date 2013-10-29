@@ -48,7 +48,10 @@ define([
             $('#lng').val(position.coords.longitude);
         },
         render: function() {
-            this.$el.html(this.template({'types': this.collection.toJSON()}));
+            if(UserModel.authorized) {
+                this.$el.html(this.template({'types': this.collection.toJSON()}));
+            }
+            
             return this;
         },
         save: function() {
