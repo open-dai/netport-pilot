@@ -5,8 +5,9 @@ define([
     'backbone',
     'templates',
     'models/report',
-    'models/user'
-], function ($, _, Backbone, JST, ReportModel, UserModel) {
+    'models/user',
+    'views/map'
+], function ($, _, Backbone, JST, ReportModel, UserModel, MapView) {
 
     'use strict';
 
@@ -27,6 +28,9 @@ define([
         template: JST['app/scripts/templates/report.ejs'],
         render: function() {
             this.$el.html(this.template({'report': this.model.toJSON()}));
+
+            var mapView = new MapView.MapView({model: this.model});
+            mapView.render();
             return this;
         }
     });

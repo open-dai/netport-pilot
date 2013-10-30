@@ -38,5 +38,23 @@ define([
         }
     });
 
+    View.MapView = Backbone.View.extend({
+        el: '#map',
+        template: JST['app/scripts/templates/map.ejs'],
+        render: function() {
+            this.$el.html(this.template);
+
+            var map = L.map('leaflet_canvas').setView([this.model.get('lat'), this.model.get('lng')], 16);
+            L.tileLayer('http://{s}.tile.cloudmade.com/4e5f745e28654b7eb26aab577eed79ee/997/256/{z}/{x}/{y}.png', {
+                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>[…]',
+                maxZoom: 18
+            }).addTo(map);
+
+            var marker = new L.Marker([this.model.get('lat'), this.model.get('lng')]);
+            marker.bindPopup(this.model.get('description'));
+            marker.addTo(map);
+        }
+    });
+
     return View;
 });
