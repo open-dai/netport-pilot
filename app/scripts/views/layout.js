@@ -8,11 +8,6 @@ define([
 
     'use strict';
 
-    /*
-    var LayoutView = Backbone.View.extend({
-    template: JST['app/scripts/templates/layout.ejs']
-    });
-    */
     var View = {};
 
     View.BannerLayout = Backbone.View.extend({
