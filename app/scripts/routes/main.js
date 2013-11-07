@@ -121,11 +121,14 @@ define([
             var bannerLayout = new Layout.BannerLayout();
             bannerLayout.render();
 
-            var typesCollection = new TypesCollection();
-            typesCollection.fetch({success: function(){
-                var createReportView = new ReportsView.ReportCreate({collection: typesCollection});
-                createReportView.render();
-            }});
+            var login = UserModel.checkLogin();
+            if( login === true ) {
+                var typesCollection = new TypesCollection();
+                typesCollection.fetch({success: function(){
+                    var createReportView = new ReportsView.ReportCreate({collection: typesCollection});
+                    createReportView.render();
+                }});
+            }
         },
 
         logout: function() {
