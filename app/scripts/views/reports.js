@@ -52,10 +52,12 @@ define([
             $('#lng').val(position.coords.longitude);
         },
         render: function() {
-            UserModel.checkLogin();
-            this.$el.html(this.template({'types': this.collection.toJSON()}));
+            var login = UserModel.checkLogin();
+            if( login === true ) {
+                this.$el.html(this.template({'types': this.collection.toJSON()}));
             
-            return this;
+                return this;
+            }
         },
         save: function() {
             console.log('Saving data');

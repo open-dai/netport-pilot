@@ -1,15 +1,16 @@
 // Report module
 define([
+    'app',
     'jquery',
     'backbone',
     'facebook'
 ],
-function($, Backbone, FB) {
+function(App, $, Backbone, FB) {
     'use strict';
     // Default Model.
     var UserModel = Backbone.Model.extend({
         defaults: {
-            third_party_id: null
+            
         },
 
         initialize: function() {
@@ -21,14 +22,19 @@ function($, Backbone, FB) {
         },
 
         checkLogin: function() {
-            var that = this;
-            FB.getLoginStatus(function(response){
-                console.log(response.authResponse);
-            });
+            var login = false;
+            console.log(this);
+            if(this.get('authorized')) {
+                login = true;
+            } else {
+                login = false;
+                App.router.navigate('', {trigger: true});
+            }
+
+            return login;
         },
 
         login: function(callback) {
-            this.checkLogin();
             var that = this;
             FB.login(function(response) {
                 if (response.authResponse) {
