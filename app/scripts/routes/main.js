@@ -133,7 +133,7 @@ define([
             var that = this;
             if(FB) {
                 FB.logout(function(){
-                    UserModel.set({authorized: false});
+                    UserModel.clear();
                     console.log('Logged out');
                     that.navigate('', {trigger:true});
                 });
