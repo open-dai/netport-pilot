@@ -9,28 +9,26 @@ function($, Backbone, FB) {
     // Default Model.
     var UserModel = Backbone.Model.extend({
         defaults: {
-            authorized: false
+            third_party_id: null
         },
 
         initialize: function() {
-            this.on('change:authorized', this.authorize, this);
+            //this.on('change:authorized', this.authorize, this);
         },
 
         authorize: function() {
-            console.log('authorized '+this.get('username'));
+            //console.log('authorized '+this.get('username'));
         },
 
-        checkLogin: function(callback) {
-            var x = false;
-            if(this.get('authorized') === false) {
-                this.login(function(){
-                    x  = true;
-                });
-            }
-            callback(x);
+        checkLogin: function() {
+            var that = this;
+            FB.getLoginStatus(function(response){
+                console.log(response.authResponse);
+            });
         },
 
         login: function(callback) {
+            this.checkLogin();
             var that = this;
             FB.login(function(response) {
                 if (response.authResponse) {

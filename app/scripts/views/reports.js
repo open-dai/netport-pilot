@@ -52,6 +52,7 @@ define([
             $('#lng').val(position.coords.longitude);
         },
         render: function() {
+            UserModel.checkLogin();
             this.$el.html(this.template({'types': this.collection.toJSON()}));
             
             return this;
