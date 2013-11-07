@@ -23,7 +23,6 @@ function(App, $, Backbone, FB) {
 
         checkLogin: function() {
             var login = false;
-            console.log(this);
             if(this.get('authorized')) {
                 login = true;
             } else {
