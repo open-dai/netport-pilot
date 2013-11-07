@@ -7,7 +7,7 @@ define([
 ], function ($, _, Backbone, JST) {
 
     'use strict';
-
+    
     var View = {};
 
     View.BannerLayout = Backbone.View.extend({
