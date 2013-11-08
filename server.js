@@ -1,5 +1,6 @@
 var express = require('express');
 var pg = require('pg');
+var path = require('path');
 var app = express();
 var port = 8001;
 
@@ -7,13 +8,15 @@ var port = 8001;
 app.use(express.bodyParser());
 
 app.all('/*', function(req, res, next) {
+    'use strict';
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     next();
 });
 
 app.configure(function(){
-    //app.use('/', express.static(__dirname + '/app'));
+    'use strict';
+    app.use(express.static(path.join(__dirname, '/dist')));
     //app.set('view engine', 'ejs');
     
     /*
