@@ -12,7 +12,7 @@
 
 @gray-darker:            @base01;
 @gray-dark:              @base02;
-@gray:                   @base04;
+@gray:                   mix(@base03, @base04, 50%);
 @gray-light:             @base05;
 @gray-lighter:           @base06;
 
@@ -52,11 +52,11 @@
 // -------------------------
 
 @table-bg:                           transparent; // overall background-color
-@table-bg-accent:                    @base00; // for striping
+@table-bg-accent:                    @base01; // for striping
 @table-bg-hover:                     @base02;
-@table-bg-active:                    @component-active-bg;
+@table-bg-active:                    @table-bg-hover;
 
-@table-border-color:                 @base00; // table and cell border
+@table-border-color:                 @base01; // table and cell border
 
 
 // Buttons
@@ -91,18 +91,19 @@
 // -------------------------
 
 @input-bg:                       @base01;
-@input-bg-disabled:              @base01;
+@input-bg-disabled:              @base00;
 
 @input-color:                    @base07;
 @input-border:                   @base02;
-@input-border-focus:             @brand-info;
+@input-border-radius:            @border-radius-base;
+@input-border-focus:             @base0D;
 
 @input-color-placeholder:        @base04;
 
 @legend-color:                   @base05;
 @legend-border-color:            @base04;
 
-@input-group-addon-bg:           @base02;
+@input-group-addon-bg:           @base01;
 @input-group-addon-border-color: @input-border;
 
 
@@ -251,20 +252,16 @@
 // -------------------------
 
 @state-warning-text:             @brand-warning;
-@state-warning-bg:               @brand-warning;
-@state-warning-border:           @state-warning-bg;
+@state-warning-bg:               mix(@body-bg, @state-warning-text, 65%);
 
 @state-danger-text:              @brand-danger;
-@state-danger-bg:                @brand-danger;
-@state-danger-border:            @state-danger-bg;
+@state-danger-bg:                mix(@body-bg, @state-danger-text, 65%);
 
 @state-success-text:             @brand-success;
-@state-success-bg:               @brand-success;
-@state-success-border:           @state-success-bg;
+@state-success-bg:               mix(@body-bg, @state-success-text, 65%);
 
 @state-info-text:                @brand-info;
-@state-info-bg:                  @brand-info;
-@state-info-border:              @state-info-bg;
+@state-info-bg:                  mix(@body-bg, @state-info-text, 65%);
 
 
 // Tooltips
@@ -306,39 +303,41 @@
 // Modals
 // -------------------------
 
-@modal-content-bg:                             @base00;
+@modal-content-bg:                             @base01;
 @modal-content-border-color:                   rgba(0,0,0,.2);
-@modal-content-fallback-border-color:          @base02;
+@modal-content-fallback-border-color:          @base00;
 
 @modal-backdrop-bg:           #000;
-@modal-header-border-color:   @body-bg;
+@modal-header-border-color:   @base00;
 @modal-footer-border-color:   @modal-header-border-color;
 
 
 // Alerts
 // -------------------------
 
+@alert-border-radius:         @border-radius-base;
+
 @alert-success-bg:            @state-success-bg;
-@alert-success-text:          @base07;
+@alert-success-text:          @state-success-text;
 @alert-success-border:        @state-success-border;
 
 @alert-info-bg:               @state-info-bg;
-@alert-info-text:             @base07;
+@alert-info-text:             @state-info-text;
 @alert-info-border:           @state-info-border;
 
 @alert-warning-bg:            @state-warning-bg;
-@alert-warning-text:          @base07;
+@alert-warning-text:          @state-warning-text;
 @alert-warning-border:        @state-warning-border;
 
 @alert-danger-bg:             @state-danger-bg;
-@alert-danger-text:           @base07;
+@alert-danger-text:           @state-danger-text;
 @alert-danger-border:         @state-danger-border;
 
 
 // Progress bars
 // -------------------------
 
-@progress-bg:                 @base00;
+@progress-bg:                 @base01;
 @progress-bar-color:          @base05;
 
 @progress-bar-bg:             @brand-primary;
@@ -354,13 +353,13 @@
 @list-group-bg:               @base01;
 @list-group-border:           @body-bg;
 
-@list-group-hover-bg:         mix(@component-active-bg, @list-group-bg, 50%);
-@list-group-active-color:     @base07;
+@list-group-hover-bg:         lighten(@list-group-bg, 6%);
+@list-group-active-color:     @component-active-color;
 @list-group-active-bg:        @component-active-bg;
 @list-group-active-border:    @list-group-active-bg;
 
-@list-group-link-color:          @base07;
-@list-group-link-heading-color:  @base05;
+@list-group-link-color:          @link-color;
+@list-group-link-heading-color:  @base04;
 
 
 // Panels
@@ -374,25 +373,25 @@
 @panel-default-border:        @body-bg;
 @panel-default-heading-bg:    @base01;
 
-@panel-primary-text:          @base07;
+@panel-primary-text:          @panel-default-text;
 @panel-primary-border:        @body-bg;
 @panel-primary-heading-bg:    @brand-primary;
 
-@panel-success-text:          @base07;
-@panel-success-border:        @state-success-border;
-@panel-success-heading-bg:    @state-success-bg;
+@panel-success-text:          @panel-default-text;
+@panel-success-border:        @body-bg;
+@panel-success-heading-bg:    @state-success-text;
 
-@panel-warning-text:          @base07;
-@panel-warning-border:        @state-warning-border;
-@panel-warning-heading-bg:    @state-warning-bg;
+@panel-warning-text:          @panel-default-text;
+@panel-warning-border:        @body-bg;
+@panel-warning-heading-bg:    @state-warning-text;
 
-@panel-danger-text:           @base07;
-@panel-danger-border:         @state-danger-border;
-@panel-danger-heading-bg:     @state-danger-bg;
+@panel-danger-text:           @panel-default-text;
+@panel-danger-border:         @body-bg;
+@panel-danger-heading-bg:     @state-danger-text;
 
-@panel-info-text:             @base07;
-@panel-info-border:           @state-info-border;
-@panel-info-heading-bg:       @state-info-bg;
+@panel-info-text:             @panel-default-text;
+@panel-info-border:           @body-bg;
+@panel-info-heading-bg:       @state-info-text;
 
 
 // Thumbnails
@@ -452,11 +451,11 @@
 // Code
 // ------------------------
 
-@code-color:                  @base01;
-@code-bg:                     @base0A;
+@code-color:                  @base0A;
+@code-bg:                     mix(@body-bg, @base0A, 60%);
 
-@pre-bg:                      @code-color;
-@pre-color:                   @code-bg;
+@pre-bg:                      darken(@body-bg, 3%);
+@pre-color:                   @base0A;
 @pre-border-color:            @pre-bg;
 
 // Type
