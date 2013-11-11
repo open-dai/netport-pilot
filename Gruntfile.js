@@ -163,7 +163,7 @@ module.exports = function (grunt) {
         less: {
             development: {
                 options: {
-                    paths: ['<%= yeoman.app %>/styles', '<%= yeoman.app %>/bower_components/bootstrap/less', '<%= yeoman.app %>/bower_components/leaflet-dist', '<%= yeoman.app %>/bower_components/base16-less']
+                    paths: ['<%= yeoman.app %>/styles', '<%= yeoman.app %>/bower_components/bootstrap/less', '<%= yeoman.app %>/bower_components/font-awesome/less', '<%= yeoman.app %>/bower_components/leaflet-dist', '<%= yeoman.app %>/bower_components/base16-less']
                 },
                 files: {
                     '<%= yeoman.app %>/styles/main.css': ['<%= yeoman.app %>/styles/main.less']
@@ -258,6 +258,17 @@ module.exports = function (grunt) {
                     ]
                 }]
             },
+            'font-awesome': {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.app %>/bower_components/font-awesome/fonts/',
+                    dest: '<%= yeoman.app %>/fonts',
+                    src: [
+                        '{,*/}*.*'
+                    ]
+                }]
+            },
             dist: {
                 files: [{
                     expand: true,
@@ -326,6 +337,7 @@ module.exports = function (grunt) {
             'createDefaultTemplate',
             'jst',
             'copy:glyphicons',
+            'copy:font-awesome',
             'less',
             'connect:livereload',
             'open',
@@ -357,6 +369,7 @@ module.exports = function (grunt) {
         'cssmin',
         'uglify',
         'copy:glyphicons',
+        'copy:font-awesome',
         'copy:dist',
         'rev',
         'usemin'
