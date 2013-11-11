@@ -7612,6 +7612,22 @@ td.visible-print {
   text-shadow: none;
   background-color: transparent;
   border: 0;
+  -webkit-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
+.no-touch #banner .brand {
+  -webkit-transition: all 120ms ease-in-out;
+  transition: all 120ms ease-in-out;
+  -webkit-transform-origin: center 80%;
+  -moz-transform-origin: center 80%;
+  transform-origin: center 80%;
+}
+.no-touch #banner .brand:hover,
+.no-touch #banner .brand:focus {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
 }
 .navbar-fixed-top {
   border-top: 5px solid #fefefe;

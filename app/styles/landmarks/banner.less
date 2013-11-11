@@ -1,20 +1,32 @@
 #banner {
   .container;
+}
 
-  .brand {
-    background: url('../images/appicon.png') center no-repeat;
-    background-size: contain;
+#banner .brand {
+  background: url('../images/appicon.png') center no-repeat;
+  background-size: contain;
 
-    display: block;
-    height: 82px;
-    width: 67px;
+  display: block;
+  height: 82px;
+  width: 67px;
 
-    position: fixed;
-    z-index: @zindex-navbar-fixed + 1;
-    top: @grid-gutter-width;
-    left: 50%;
-    margin-left: -33px;
+  position: fixed;
+  z-index: @zindex-navbar-fixed + 1;
+  top: @grid-gutter-width;
+  left: 50%;
+  margin-left: -33px;
 
-    .hide-text();
+  .hide-text();
+
+  .scale(.85);
+  .no-touch & {
+    .transition(~'all 120ms ease-in-out');
+    .transform-origin(~'center 80%');
+  }
+  &:hover,
+  &:focus {
+    .no-touch & {
+      .scale(1);
+    }
   }
 }
