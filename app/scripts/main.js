@@ -1,19 +1,41 @@
 /*global require*/
-
 'use strict';
 
-require(['config'], function() {
-    require(['app', 'backbone', 'routes/main'], function (app, Backbone, MainRouter) {
+require.config({
+    shim: {
+        underscore: {
+            exports: '_'
+        },
+        backbone: {
+            deps: [
+                'underscore',
+                'jquery'
+            ],
+            exports: 'Backbone'
+        },
+        facebook: {
+            exports: 'FB'
+        }
+    },
+    paths: {
+        jquery: '../bower_components/jquery/jquery',
+        backbone: '../bower_components/backbone/backbone',
+        underscore: '../bower_components/underscore/underscore',
+        bootstrap: '../bower_components/bootstrap/dist/bootstrap',
+        leaflet: '../bower_components/leaflet-dist/leaflet',
+        facebook: '//connect.facebook.net/en_US/all'
+    }
+});
 
-        app.router = new MainRouter();
+require(['app', 'backbone', 'routes/main'], function (app, Backbone, MainRouter) {
 
-        Backbone.history.start({
-            pushState: false,
-            root: app.root
-        });
+    app.router = new MainRouter();
 
-        
-        Backbone.emulateJSON = true;
+    Backbone.history.start({
+        pushState: false,
+        root: app.root
     });
 
+    Backbone.emulateJSON = true;
 });
+
