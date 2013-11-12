@@ -11,28 +11,28 @@
           switch (report.status_id) {
             case 2:
               // Handläggs
-              report.badgeClass = "label-info";
+              report.statusClass = "text-info";
               break;
             case 3:
               // Behandlas
-              report.badgeClass = "label-warning";
+              report.statusClass = "text-warning";
               break;
             case 4:
               // Åtgärdad
-              report.badgeClass = "label-success";
+              report.statusClass = "text-success";
               break;
             case 5:
               // Åtgärdas ej
-              report.badgeClass = "label-danger";
+              report.statusClass = "text-danger";
               break;
             case 1:
             default:
               // Ej granskad
-              report.badgeClass = "label-default";
+              report.statusClass = "hide";
           }
         %>
         <a href="#/reports/<%=report.id%>" class="list-group-item">
-          <span class="label <%=report.badgeClass%>"><%=report.status%></span>
+          <span class="pull-right <%=report.statusClass%>"><%=report.status%></span>
           <h4 class="list-group-item-heading"><%=report.title%></h4>
           <p class="list-group-item-text"><strong><%=report.type%>:</strong> <%=report.description%></p>
         </a>
