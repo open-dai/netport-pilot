@@ -15,7 +15,7 @@
               break;
             case 3:
               // Behandlas
-              report.badgeClass = "label-info";
+              report.badgeClass = "label-warning";
               break;
             case 4:
               // Åtgärdad
@@ -28,7 +28,7 @@
             case 1:
             default:
               // Ej granskad
-              report.badgeClass = "label-info";
+              report.badgeClass = "label-default";
           }
         %>
         <a href="#/reports/<%=report.id%>" class="list-group-item">
