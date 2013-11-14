@@ -7738,3 +7738,6 @@ body {
 [class^="col-"] {
   margin-bottom: 5px;
 }
+.text-status {
+  color: #a2b0b6;
+}
