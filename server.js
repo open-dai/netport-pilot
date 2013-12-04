@@ -20,7 +20,7 @@ app.configure(function(){
 
 /**
  * Variables
- * Connection string: This is going to change. Dont forget to update ip when upload.
+ * Connection string: This is maybe going to change.
  */
 var dbConn = 'pg://user:user@194.116.110.159:35432/ReportsVDB';
 var data = {
@@ -36,7 +36,10 @@ function queryDB(query, callback) {
         if(err) { console.log(err); }
 
         client.query(query, function(err, result){
-            if(err) { console.log(err); }
+            if(err) {
+                console.log(err);
+                data = err;
+            }
 
             if(result === undefined) {
                 data = null;
@@ -48,11 +51,7 @@ function queryDB(query, callback) {
         done();//call done() to signal you are finished with the client
     });
 }
-/*
-app.get('/report/:id', function(req, res){
-  res.send(express.static(__dirname+'/'));
-});
-*/
+
 app.get('/api/reports', function(req, res){
     'use strict';
     queryDB('SELECT Reports.reports.*, Reports.types.title AS type, Reports.status.title AS status FROM Reports.reports INNER JOIN Reports.types ON Reports.reports.types_id = Reports.types.id INNER JOIN Reports.status ON Reports.reports.status_id = Reports.status.id ORDER BY Reports.reports.added DESC', function(result){
