@@ -1,6 +1,7 @@
 /*global define*/
 
 define([
+    'app',
     'jquery',
     'backbone',
     'facebook',
@@ -13,7 +14,7 @@ define([
     'collections/types',
     'models/user',
     'models/report'
-], function ($, Backbone, FB, LoginView, Layout, BootstrapView, MapView, ReportsView, ReportsCollection, TypesCollection, UserModel, ReportModel) {
+], function (App, $, Backbone, FB, LoginView, Layout, BootstrapView, MapView, ReportsView, ReportsCollection, TypesCollection, UserModel, ReportModel) {
     'use strict';
 
     //Init Facebook connection
@@ -97,7 +98,8 @@ define([
                 console.log('Rendering report: '+id);
 
                 var reportModel = new ReportModel();
-                reportModel.url = 'http://localhost:8001/api/reports/'+id;
+                //reportModel.url = 'http://localhost:8888/api/reports/'+id;
+                reportModel.url = App.api+'/api/reports/'+id;
                 reportModel.fetch({success: function(data){
                     var singleReport = new ReportsView.SingleReport({model: data});
                     singleReport.render();
