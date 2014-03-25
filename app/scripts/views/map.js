@@ -11,6 +11,18 @@ define([
 
     var View = {};
 
+    var myIcon = L.icon({
+        iconUrl: 'images/marker-icon.png',
+        iconRetinaUrl: 'images/marker-icon-2x.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [2, -41],
+        shadowUrl: 'images/marker-shadow.png',
+        shadowRetinaUrl: 'images/marker-shadow-2x.png',
+        shadowSize: [25, 41],
+        shadowAnchor: [7, 41]
+    });
+
     View.MapLayout = Backbone.View.extend({
         el: '#main',
         template: JST['app/scripts/templates/map.ejs'],
@@ -28,7 +40,7 @@ define([
 
             _.each(this.collection.models, function(model){
                 if(model.get('lat') !== null) {
-                    var marker = new L.Marker([model.get('lat'), model.get('lng')]);
+                    var marker = new L.Marker([model.get('lat'), model.get('lng')], {icon: myIcon});
                     marker.bindPopup(model.get('description'));
                     marker.addTo(map);
                 }
@@ -50,9 +62,11 @@ define([
                 maxZoom: 18
             }).addTo(map);
 
-            var marker = new L.Marker([this.model.get('lat'), this.model.get('lng')]);
+            var marker = new L.Marker([this.model.get('lat'), this.model.get('lng')], {icon: myIcon});
             marker.bindPopup(this.model.get('description'));
             marker.addTo(map);
+
+            map.dragging.disable();
         }
     });
 

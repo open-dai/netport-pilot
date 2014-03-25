@@ -1,16 +1,18 @@
 // Report module
 define([
+    'app',
     'jquery',
     'backbone',
     'models/types'
 ],
-function ($, Backbone, TypesModel) {
+function (App, $, Backbone, TypesModel) {
     'use strict';
 
     // Default Collection.
     var TypesCollection = Backbone.Collection.extend({
         model: TypesModel,
-        url: 'http://localhost:8001/api/types'
+        url: App.api+'/api/types'
+        //url: 'http://localhost:8888/api/types'
     });
 
     return TypesCollection;

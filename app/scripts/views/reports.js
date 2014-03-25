@@ -44,8 +44,12 @@ define([
         },
         initialize: function() {
             this.model = new ReportModel();
-            this.model.url = 'http://localhost:8001/api/reports';
+            this.model.url = App.api+'/api/reports';
             _.bindAll(this);
+
+            this.model.on('change:fb_id', function(){
+                App.router.navigate('#/reports', {trigger:true});
+            }, this);
         },
         showPosition: function(position) {
             this.model.set({
@@ -67,15 +71,13 @@ define([
             mapView.render();
         },
         save: function() {
-            console.log('Saving data');
-            this.model.set({
+            console.log('Saving data2');
+            //this.model.set();
+            this.model.save({
                 'description': $('#description').val(),
                 'types_id': $('#types_id').val(),
                 'fb_id': UserModel.get('fb_id')
             });
-            this.model.save({success: function(){
-                App.router.navigate('#/reports', {trigger: true});
-            }});
         }
     });
 
