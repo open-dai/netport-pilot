@@ -1,7 +1,7 @@
 var express = require('express');
 var pg = require('pg');
 var app = express();
-var port = 8001;
+var port = 8888;
 
 //Config
 app.use(express.bodyParser());
@@ -15,7 +15,7 @@ app.all('/*', function(req, res, next) {
 
 app.configure(function(){
     'use strict';
-    app.use('/', express.static(__dirname + '/dist'));
+    app.use('/', express.static(__dirname + '/app'));
 });
 
 /**
@@ -72,10 +72,12 @@ app.post('/api/reports', function(req, res){
     'use strict';
     console.log('Saving data');
     var data = JSON.parse(req.body.model);
+    /*
     queryDB("INSERT INTO Reports.reports(description, lat, lng, types_id, status_id, fb_id) VALUES('"+data.description+"', "+data.lat+", "+data.lng+", "+data.types_id+", 1, "+data.fb_id+")", function(result){
         res.send(200, result);
     });
-
+    */
+    res.send(200, 'hejsan');
 });
 
 app.get('/api/status', function(req, res){
