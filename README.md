@@ -7,12 +7,18 @@ This is a report application built for Karlshamn municipality within the Open-DA
 To run this application you need to have node.js, node package manager (npm) and bower.
 
 To install simply type: 
-* npm install
-* bower install
+```
+npm install
+```
+and
+```
+bower install
+```
 
 To run the application type:
+```
 node server.js
-
+```
 This starts the server which start up the API and also serves the application.
 
 ### Demo
