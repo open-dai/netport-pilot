@@ -1,7 +1,11 @@
 var express = require('express');
 var pg = require('pg');
+var js2xmlparser = require('js2xmlparser');
 var app = express();
+
 var port = 8888;
+
+var nodemailer = require('nodemailer');
 
 //Config
 app.use(express.bodyParser());
@@ -68,16 +72,52 @@ app.get('/api/reports/:id', function(req, res){
     });
 });
 
+//Save report
 app.post('/api/reports', function(req, res){
     'use strict';
     console.log('Saving data');
     var data = JSON.parse(req.body.model);
-    /*
-    queryDB("INSERT INTO Reports.reports(description, lat, lng, types_id, status_id, fb_id) VALUES('"+data.description+"', "+data.lat+", "+data.lng+", "+data.types_id+", 1, "+data.fb_id+")", function(result){
-        res.send(200, result);
+
+    queryDB('SELECT Reports.types.title AS type FROM Reports.types WHERE Reports.types.id = '+data.types_id+'', function(result){
+        data.type = result[0].type;
+        queryDB("INSERT INTO Reports.reports(description, lat, lng, types_id, status_id, fb_id) VALUES('"+data.description+"', '"+data.lat+"', '"+data.lng+"', "+data.types_id+", 1, "+data.fb_id+")", function(result){
+            //Send mail to felanmalan@karlshamn.se
+            // create reusable transport method (opens pool of SMTP connections)
+            var smtpTransport = nodemailer.createTransport('SMTP',{
+                service: 'Gmail',
+                auth: {
+                    user: 'karlshamnreports@gmail.com',
+                    pass: 'djsteffo'
+                }
+            });
+
+            // setup e-mail data with unicode symbols
+            var mailOptions = {
+                from: 'Felrapporteringsappen <karlshamnreports@gmail.com>', // sender address
+                to: 'alexander.hansson@netport.se, linus.de.petris@karlshamn.se', // list of receivers
+                subject: 'Felanmälan: '+data.type, // Subject line
+                text: 'Felrapport från appen: '+data.description, // plaintext body
+                html: '<b>Felrapport från appen: </b>'+data.description, // html body
+                attachments: {
+                    fileName: 'report.xml',
+                    contents: js2xmlparser('report', data)
+                }
+            };
+
+            // send mail with defined transport object
+            smtpTransport.sendMail(mailOptions, function(error, response){
+                if(error){
+                    console.log(error);
+                }else{
+                    console.log('Message sent: ' + response.message);
+                }
+
+                // if you don't want to use this transport object anymore, uncomment following line
+                //smtpTransport.close(); // shut down the connection pool, no more messages
+            });
+            res.send(200, result);
+        });
     });
-    */
-    res.send(200, 'hejsan');
 });
 
 app.get('/api/status', function(req, res){
@@ -87,12 +127,15 @@ app.get('/api/status', function(req, res){
     });
 });
 
+
+//Update report
 app.put('/api/reports/:id', function(req, res){
     'use strict';
     console.log('Saving data');
     var id = req.params.id;
     var report = req.body.reports;
     queryDB("UPDATE Reports.reports SET title = '"+report.title+"', description = '"+report.description+"' WHERE id = "+id+"", function(){
+
         res.send(200, 'saving'+id);
     });
 });

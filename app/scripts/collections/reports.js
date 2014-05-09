@@ -15,7 +15,6 @@ function (App, $, Backbone, ReportModel) {
             return response.reports;
         },
         url: App.api+'/api/reports'
-        //url: 'http://localhost:8888/api/reports'
     });
 
     return ReportCollection;

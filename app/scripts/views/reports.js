@@ -7,8 +7,9 @@ define([
     'templates',
     'models/report',
     'models/user',
-    'views/map'
-], function (App, $, _, Backbone, JST, ReportModel, UserModel, MapView) {
+    'views/map',
+    'collections/reports'
+], function (App, $, _, Backbone, JST, ReportModel, UserModel, MapView, ReportCollection) {
 
     'use strict';
 
@@ -56,14 +57,15 @@ define([
                 'lat': position.coords.latitude,
                 'lng': position.coords.longitude
             });
+            this.$el.html(this.template({'types': this.collection.toJSON()}));
             this.mapRender();
         },
         render: function() {
+            this.$el.html('<img src="images/loader.GIF" />');
             if (navigator.geolocation)
             {
                 navigator.geolocation.getCurrentPosition(this.showPosition);
             }
-            this.$el.html(this.template({'types': this.collection.toJSON()}));
             return this;
         },
         mapRender: function() {
@@ -72,7 +74,9 @@ define([
         },
         save: function() {
             console.log('Saving data2');
-            //this.model.set();
+
+            //ReportCollection.add(this.model);
+            
             this.model.save({
                 'description': $('#description').val(),
                 'types_id': $('#types_id').val(),

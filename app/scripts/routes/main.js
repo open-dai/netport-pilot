@@ -98,7 +98,6 @@ define([
                 console.log('Rendering report: '+id);
 
                 var reportModel = new ReportModel();
-                //reportModel.url = 'http://localhost:8888/api/reports/'+id;
                 reportModel.url = App.api+'/api/reports/'+id;
                 reportModel.fetch({success: function(data){
                     var singleReport = new ReportsView.SingleReport({model: data});
