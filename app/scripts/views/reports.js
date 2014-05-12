@@ -47,7 +47,7 @@ define([
             this.model = new ReportModel();
             this.model.url = App.api+'/api/reports';
             _.bindAll(this);
-
+            
             this.model.on('change:fb_id', function(){
                 App.router.navigate('#/reports', {trigger:true});
             }, this);
@@ -61,7 +61,7 @@ define([
             this.mapRender();
         },
         render: function() {
-            this.$el.html('<img src="images/loader.GIF" />');
+            this.$el.html('<img src="images/loader.GIF" alt="Loading" />');
             if (navigator.geolocation)
             {
                 navigator.geolocation.getCurrentPosition(this.showPosition);
@@ -74,14 +74,14 @@ define([
         },
         save: function() {
             console.log('Saving data2');
-
-            //ReportCollection.add(this.model);
             
             this.model.save({
                 'description': $('#description').val(),
                 'types_id': $('#types_id').val(),
                 'fb_id': UserModel.get('fb_id')
             });
+
+            ReportCollection.add(this.model);
         }
     });
 

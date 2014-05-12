@@ -17,6 +17,6 @@ function (App, $, Backbone, ReportModel) {
         url: App.api+'/api/reports'
     });
 
-    return ReportCollection;
+    return new ReportCollection();
 
 });

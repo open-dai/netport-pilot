@@ -94,7 +94,7 @@ app.post('/api/reports', function(req, res){
             // setup e-mail data with unicode symbols
             var mailOptions = {
                 from: 'Felrapporteringsappen <karlshamnreports@gmail.com>', // sender address
-                to: 'alexander.hansson@netport.se, linus.de.petris@karlshamn.se', // list of receivers
+                to: 'alexander.hansson@netport.se', // list of receivers
                 subject: 'Felanmälan: '+data.type, // Subject line
                 text: 'Felrapport från appen: '+data.description, // plaintext body
                 html: '<b>Felrapport från appen: </b>'+data.description, // html body

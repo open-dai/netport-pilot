@@ -105,7 +105,7 @@ define([
                 }});
 
             } else {
-                var reportsCollection = new ReportsCollection();
+                var reportsCollection = ReportsCollection;
                 reportsCollection.fetch({success: function(){
                     var reportsLayout = new ReportsView.ReportsLayout({collection: reportsCollection});
                     reportsLayout.render();
